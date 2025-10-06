@@ -1,0 +1,266 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red83\green83\blue83;\red155\green155\blue155;
+\red38\green38\blue38;\red18\green62\blue162;\red12\green97\blue100;\red114\green114\blue114;\red21\green21\blue21;
+}
+{\*\expandedcolortbl;;\cspthree\c0\c0\c0;\cspthree\c40000\c40000\c40000;\cspthree\c67060\c67060\c67060;
+\cspthree\c20000\c20000\c20000;\cspthree\c15975\c32447\c67402;\cspthree\c19126\c44393\c46184;\cspthree\c52160\c52160\c52160;\cspthree\c10590\c10590\c10590;
+}
+\margl1440\margr1440\vieww28040\viewh25240\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs15\fsmilli7995 \cf2 10/5/25, 4:41 PM U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs15 \cf3 Advertisement\
+
+\f0\fs18 \cf4 ACP Journals\
+
+\fs24 \cf5 \uc0\u59542  \u59534  
+\fs28\fsmilli14400 \uc0\u59682  
+\fs31\fsmilli15600 \uc0\u59676  
+\fs24 \uc0\u59720  \u58384  \u59722  
+\fs31\fsmilli15600 \uc0\u59736  
+\fs24 \uc0\u59405 \
+A trio of current Annals articles each takes a different route to the same conclusion:\
+Using initial supplies of coronavirus disease 2019 (COVID-19) vaccines to immunize as\
+many persons as possible with a single-dose regimen may achieve more benefit than\
+a more effective 2-dose regimen in a smaller population.\
+The model of Paltiel and colleagues (\cf6 1\cf5 ) makes the case for a single-dose vaccine, even\
+if it is somewhat less effective than a 2-dose regimen of another vaccine. Barnabas and\
+Wald (\cf6 2\cf5 ) argue for single-dose immunization campaigns involving the Pfizer/BioNTech\
+and Moderna vaccines, despite the absence of long-term efficacy data from clinical\
+trials. The model from Tuite and colleagues (\cf6 3\cf5 ) questions the practice of reserving the\
+second dose for every person immunized.\
+In large-scale trials with tens of thousands of participants, the 2-dose regimens of the\
+Pfizer/BioNTech and Moderna vaccines both demonstrated about 95% efficacy in\
+preventing COVID-19. These studies were designed to test a 2-dose regimen, but the\
+data reported to the U.S. Food and Drug Administration (FDA) raised the possibility\
+that even a single dose of these vaccines might offer a clinically significant, albeit\
+lower, level of protection against the disease. The FDA has issued emergency use\
+authorization for a 2-dose regimen of these vaccines, a prime and a booster, 21 days\
+apart for the Pfizer/BioNTech vaccine and 28 days apart for the Moderna vaccine.\
+In a public health emergency, a powerful argument exists for doing something with\
+less-than-perfect results if it can help more persons quickly. However, whether\
+alternative approaches with current vaccines would accomplish this goal is far from\
+clear.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 1/710/5/25, 4:41 PM U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs24 \cf5 Several constraints stand in the way of getting COVID-19 vaccine doses into the arms\
+of the persons who stand to benefit most from them. \cf2 Supply c onstr aints in the\
+production and procurement of vaccine doses, as well as vials, syringes, and other\
+vaccine-related materials, limit or delay their availability to patients and providers.\
+A dministr ation c onstr aints are obstacles that emerge in the distribution and\
+administration of the vaccines to patients.\cf5  Demand constraints reflect the hurdles that\
+exist in vaccinating members of high-risk and high-priority populations who may be\
+reluctant to be vaccinated.\
+A single-dose regimen of the current vaccines that offers a lower but still substantial\
+level of protection against COVID-19 may alleviate vaccine supply constraints, but may\
+do so at the expense of aggravating the demand and administration constraints that\
+present the greater hurdle to vaccinating vulnerable groups in the United States. The\
+United States has historically struggled to vaccinate adults. In the past decade, the\
+rate of seasonal influenza vaccination among U.S. adults has never exceeded 50%.\
+Coverage rates for seasonal influenza have been even lower for Black and Latinx\
+Americans and high-risk adults between the ages of 18 and 49 years (\cf6 4\cf5 ). During the\
+last pandemic for which there was a vaccine\'97the 2009 H1N1 pandemic\'97only 22.7% of\
+American adults were vaccinated (\cf6 5\cf5 ). After months of wariness, recent polls show that\
+interest in receiving COVID-19 vaccines is finally rising among Americans, including\
+Black and Latinx populations, in part because of the news that clinical trials showed\
+the Pfizer/BioNTech and Moderna vaccines to be highly effective (\cf6 6\cf5 ). Offering reluctant\
+populations a less effective regimen of a vaccine, or failing to offer its second dose on\
+schedule, may cause confusion, create a multitiered system of vaccine access, and\
+exacerbate historical concerns that certain groups are more likely to receive\
+substandard care.\
+In the United States, COVID-19 vaccine administration will depend on the same\
+overworked and underresourced U.S. state, local, and tribal public health systems that\
+have delivered H1N1 and seasonal flu vaccines. Despite months of pleas for at least $6\
+billion to prepare state and local governments for what will be the largest vaccination\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 2/710/5/25, 4:41 PM U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs24 \cf5 campaign in U.S. history, Congress only recently appropriated the necessary funds,\
+and it will be weeks more before those federal resources are distributed and put to\
+good use. In the interim, administration will continue to be a greater challenge than\
+limited doses in the early roll-out of COVID-19 vaccines. As of December 30, the Centers\
+for Disease Control and Prevention reported that only 2.6 million of the 12.4 million\
+vaccine doses distributed had been administered to U.S. patients (\cf6 7\cf5 ).\
+The United States is unfortunately demonstrating the public health axiom that what\
+saves lives is the practice of vaccination, not just the existence of vaccines. The\
+immediate task facing the public health system is to deliver vaccines swiftly and surely\
+to high-priority populations and, in the process, to build momentum and confidence.\
+There are no shortcuts to inspiring trust among those at greatest risk, developing and\
+implementing an effective vaccination program, and monitoring for safety and\
+effectiveness over time. Models of alternative strategies\'97particularly those that make\
+large assumptions about vaccine efficacy in the absence of reliable data\'97should not\
+drive policy without a full consideration of the challenges of implementation and\
+potential unintended effects.\
+Ideas for stretching vaccine supplies may yet have utility, but they will have greater\
+application when and where supply constraints are the rate-limiting steps. There is no\
+shortage of those settings, because a few wealthy nations, including the United States,\
+have already purchased most early supplies of the most promising COVID-19 vaccines\
+(\cf6 8\cf5 ). Yet, a moment may soon arrive when COVID-19 vaccine supplies are a greater\
+limitation on U.S. vaccination than at present; therefore, considering various\
+alternative approaches is worthwhile. For now, the priority should be to grow the\
+evidence base by pursuing clinical testing and observational studies to determine\
+whether a single dose or a delayed second dose of the current vaccines will generate\
+immunity similar to that of the FDA-authorized 2-dose regimen. Supported by strong\
+public health systems, rapid vaccine production, and equitable vaccine distribution\
+within the United States and around the world, vaccination strategies driven by data\
+can bring an end to COVID-19.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 3/710/5/25, 4:41 PM 
+\fs36 \cf7 References\
+
+\fs15\fsmilli7995 \cf2 U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs21 \cf5 1.\
+Paltiel AD, Schwartz JL, Zheng A, et al. Speed versus efficacy: quantifying potential\
+tradeoffs in COVID-19 vaccine deployment. Ann Intern Med. 2021;174:568-70. doi: \cf6 10.7326/M20-\
+7866\
+
+\fs11\fsmilli5850 \uc0\u58841  
+\fs18 Go to Citation 
+\fs21 \cf8 | 
+\fs18 \cf6 Crossref 
+\fs21 \cf8 | 
+\fs18 \cf6 Google Scholar\
+
+\fs21 \cf5 2.\
+Barnabas RV, Wald A. A public health COVID-19 vaccination strategy to maximize the health\
+gains for every single vaccine dose. Ann Intern Med. 2021;174:552-3. doi: \cf6 10.7326/M20-8060\
+
+\fs11\fsmilli5850 \uc0\u58841  
+\fs18 Go to Citation 
+\fs21 \cf8 | 
+\fs18 \cf6 Crossref 
+\fs21 \cf8 | 
+\fs18 \cf6 Google Scholar\
+
+\fs21 \cf5 3.\
+Tuite AR, Fisman DN, Zhu L, et al. Alternative dose allocation strategies to increase benefits\
+from constrained COVID-19 vaccine supply. Ann Intern Med. 2021;174:570-2. doi: \cf6 10.7326/M20-8\
+137\
+
+\fs11\fsmilli5850 \uc0\u58841  
+\fs18 Go to Citation 
+\fs21 \cf8 | 
+\fs18 \cf6 Crossref 
+\fs21 \cf8 | 
+\fs18 \cf6 Google Scholar\
+
+\fs21 \cf5 4.\
+U.S. Centers for Disease Control and Prevention. Influenza (Flu): Influenza Vaccination\
+Coverage. Accessed at \cf6 www.cdc.gov/flu/fluvaxview/index.htm\cf5  on 30 December 2020.\
+
+\fs11\fsmilli5850 \cf6 \uc0\u58841  
+\fs18 Go to Citation 
+\fs21 \cf8 | 
+\fs18 \cf6 Google Scholar\
+\cf5 SHOW ALL REFERENCES\
+
+\fs36 \cf7 Comments\
+
+\fs24 \cf2 3 Comments\
+\cf5 Sign In to Submit A Comment\
+
+\fs18 \cf9 R Rapport 
+\fs24 \cf2 \'95
+\fs18 \cf9  Retired 
+\fs24 \cf2 \'95
+\fs18 \cf9  5 January 2021\
+
+\fs24 \cf2 Priorities\
+
+\fs21 \cf5 Instead of theorizing how to change the vaccination regimen (without trials), concern regarding\
+supply availability should be looking at shipment logistics: What is the chain of supply? Who is\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 4/710/5/25, 4:41 PM U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs21 \cf5 responsible for validation? Where are the checkpoints? What is the delivery and receiving\
+schedule? Are the appropriate administrators available? Etc.\
+
+\fs18 \cf9 Douglas Satcher 
+\fs24 \cf2 \'95
+\fs18 \cf9  Douglas Satcher, M.D.\
+
+\fs24 \cf2 \'95
+\fs18 \cf9  9 January 2021\
+
+\fs24 \cf2 Patient Confidence\
+
+\fs21 \cf5 I agree totally and completely with the authors regarding our Vaccine issues.\
+The error in giving a Vaccine without great efficacy will have the effect of reducing overall\
+confidence in the Vaccine.\
+We see the same issue now in patients who "got the flu vaccine and still got the Flu". Knowingly\
+reducing the chance of 95% protection (Just to make ourselves feel like we did something) will\
+lessen our ability to convince patients of it's benefit..\
+We need to concentrate on the logistics!!\
+Disclosures:\
+I have no conflicts of interest\
+
+\fs18 \cf9 Guglielmo M.Trovato*, Simon D.Taylor-Robinson**, Marsha Y Morgan **, Rodrigo Amo de la Fuente**, Vincenzo\
+Costigliola* 
+\fs24 \cf2 \'95
+\fs18 \cf9  EMA Brussels, Belgium*; London UK** 
+\fs24 \cf2 \'95
+\fs18 \cf9  13 May 2021\
+
+\fs24 \cf2 Leveraging Open Science to Accelerate Research in COVID-19 vaccines: which are\
+the challenges of exclusive patents?\
+
+\fs21 \cf5 We fully agree with the statements of the Annals\'92 Editorial:\
+1. The public health axiom that "what saves lives is the practice of vaccination, not just the\
+existence of vaccines".\
+2. The immediate task facing the public health system is to deliver vaccines swiftly and surely\
+to high-priority populations and, in the process, to build momentum and confidence.\
+Accordingly, the world\'92s population needs to be reached by affordable, effective and quick\
+vaccination campaigns, thus preventing return waves of the pandemic. To effect this, there needs\
+to be patent rights limitation in most countries.\
+Vaccine patents are currently guaranteed by international agreements, but high costs and\
+safeguarding the interests of a few multinational companies are serious threats that obstruct\
+vaccine roll out. From a global problem perspective, patent rights limitation is a step forward and\
+may be a mechanism for inspiring trust among skeptical populations at greatest risk, and for\
+implementing effective vaccination programs. The chain of knowledge, ideas, research, innovation,\
+development, production, distribution, delivery and actual administration should not be the sole\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 5/710/5/25, 4:41 PM U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs21 \cf5 prerogative of a few multinationals that purchase and monopolize know-how and supplies with\
+their own rules, as if they were themselves sovereign states.\
+Even after the call by President Biden for patent liberalization, no medical and scientific society has\
+expressed a position, amidst the ongoing debate. This silence further contributes to the distrust of\
+large groups of the world\'92s population towards science and medicine.\
+We believe that patent rights limitation in the COVID-19 era is a sustainable proposal. In the current\
+climate of this international public health emergency, patent liberalisation should be fully\
+implemented, following governmental agreements in all countries of the world. The point is not to\
+question the right to fair gain for intellectual property of something subject to a patent, but to\
+allow, as in this case, the effective utility of the patent itself.\
+The wider scenario of public funding and research contributions made these achievements\
+possible, and allows further advancement. In our view, removing patent barriers, even temporarily,\
+is a needed first step, along with transferring advanced manufacturing know-how. Without patent\
+suspension, inevitable prevarication will occur, not justified by any economic, scientific or ethical\
+consideration.\
+
+\f1\fs15 \cf3 Advertisement\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 6/710/5/25, 4:41 PM U.S. COVID-19 Vaccination Challenges Go Beyond Supply | Annals of Internal Medicine\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs21 \cf5 View full text 
+\fs24 \cf8 | 
+\fs21 \cf5 Download PDF\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.acpjournals.org/doi/10.7326/M20-8280#:~:text=Supply constraints in the production,of the vaccines to patients.&text=Priorities,the delivery and receivin\'85 7/7}

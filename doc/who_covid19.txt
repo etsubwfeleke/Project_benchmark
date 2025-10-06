@@ -1,0 +1,140 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red46\green51\blue53;\red1\green21\blue74;
+\red10\green27\blue79;}
+{\*\expandedcolortbl;;\cspthree\c0\c0\c0;\cspthree\c23967\c25806\c26921;\cspthree\c3316\c12297\c34666;
+\cspthree\c7032\c15431\c36997;}
+\margl1440\margr1440\vieww28040\viewh25240\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs15\fsmilli7995 \cf2 10/5/25, 4:15 PM Coronavirus disease (COVID-19)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs19\fsmilli9720 \cf2 Donate\
+
+\f1\b\fs58\fsmilli29160 \cf3 Coronavirus disease (COVID-19)\
+
+\f0\b0\fs17\fsmilli8505 \cf4 9 August 2023\
+Fran\'e7ais \uc0\u1056 \u1091 \u1089 \u1089 \u1082 \u1080 \u1081  Espa\'f1ol \u1575 \u1604 \u1593 \u1585 \u1576 \u1610 \u1577 \
+
+\f1\b\fs38\fsmilli19440 \cf3 Key facts\
+
+\f0\b0\fs19\fsmilli9720 COVID-19 is a disease caused by a virus. The most common symptoms are fever, chills, and sore throat, but\
+there are a range of others.\
+Most people make a full recovery without needing hospital treatment. People with severe symptoms should seek\
+medical care as soon as possible.\
+Over 760 million cases and 6.9 million deaths have been recorded worldwide since December 2019, but the actual\
+number is thought to be higher.\
+Over 13 billion vaccine doses have been administered as of June 2023.\
+
+\f1\b\fs38\fsmilli19440 Overview\
+
+\f0\b0\fs19\fsmilli9720 COVID-19 is the disease caused by the SARS-CoV-2 coronavirus. It usually spreads between people in close contact.\
+COVID-19 vaccines provide strong protection against severe illness and death. Although a person can still get COVID-\
+19 after vaccination, they are more likely to have mild or no symptoms.\
+Anyone can get sick with COVID-19 and become seriously ill or die, but most people will recover without treatment.\
+People over age 60 and those with existing medical conditions have a higher risk of getting seriously ill. These\
+conditions include high blood pressure, diabetes, obesity, immunosuppression including HIV, cancer and pregnancy.\
+Unvaccinated people also have a higher risk of severe symptoms.\
+
+\f1\b\fs38\fsmilli19440 Symptoms\
+
+\f0\b0\fs19\fsmilli9720 People may experience different symptoms from COVID-19. Symptoms usually begin 5\'966 days after exposure and last\
+1\'9614 days.\
+The most common symptoms are:\
+fever\
+chills\
+sore throat.\
+Less common symptoms are:\
+muscle aches and heavy arms or legs\
+severe fatigue or tiredness\
+runny or blocked nose, or sneezing\
+headache\
+sore eyes\
+dizziness\
+new and persistent cough\
+tight chest or chest pain\
+shortness of breath\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19) 1/310/5/25, 4:15 PM Coronavirus disease (COVID-19)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs19\fsmilli9720 \cf3 hoarse voice\
+numbness or tingling\
+appetite loss, nausea, vomiting, abdominal pain or diarrhoea\
+loss or change of sense of taste or smell\
+difficulty sleeping.\
+People with the following symptoms should seek immediate medical attention:\
+difficulty breathing, especially at rest, or unable to speak in sentences\
+confusion\
+drowsiness or loss of consciousness\
+persistent pain or pressure in the chest\
+skin being cold or clammy, or turning pale or a bluish colour\
+loss of speech or movement.\
+People who have pre-existing health problems are at higher risk when they have COVID-19; they should seek medical\
+help early if worried about their condition. These include people taking immunosuppressive medication; those with\
+chronic heart, lung, liver or rheumatological problems; those with HIV, diabetes, cancer . obesity or dementia.\
+People with severe disease and those needing hospital treatment should receive treatment as soon as possible. The\
+consequences of severe COVID-19 include death, respiratory failure, sepsis, thromboembolism (blood clots), and\
+multiorgan failure, including injury of the heart, liver or kidneys.\
+In rare situations, children can develop a severe inflammatory syndrome a few weeks after infection.\
+Some people who have had COVID-19, whether they have needed hospitalization or not, continue to experience\
+symptoms. These long-term effects are called long COVID (or post COVID-19 condition). The most common symptoms\
+associated with long COVID include fatigue, breathlessness and cognitive dysfunction (for example, confusion,\
+forgetfulness, or a lack of mental focus or clarity). Long COVID can affect a person\'92s ability to perform daily activities\
+such as work or household chores.\
+
+\f1\b\fs38\fsmilli19440 Treatment\
+
+\f0\b0\fs19\fsmilli9720 Most people will recover without needing treatment in a hospital.\
+For those who need it, doctors will suggest treatments for COVID-19 based on the severity of the disease and the risk\
+of it getting worse. They will consider the person\'92s age and if they have other health problems.\
+\cf5 More on treatment\
+
+\f1\b\fs38\fsmilli19440 \cf3 Prevention\
+
+\f0\b0\fs19\fsmilli9720 People should get vaccinated as soon as it\'92s their turn. They should follow local guidance on vaccination and ways to\
+protect themselves against COVID-19.\
+COVID-19 vaccines provide strong protection against serious illness, hospitalization and death.\
+To prevent the spread of COVID-19:\
+avoid crowds and keep a safe distance from others, even if they don\'92t appear to be sick;\
+wear a properly fitted mask if you feel sick, have been close to people who are sick, if you are at high-risk, or in\
+crowded or poorly ventilated areas;\
+clean your hands frequently with alcohol-based hand rub or soap and water;\
+cover your mouth and nose with a bent elbow or tissue when you cough or sneeze;\
+dispose of used tissues right away and clean your hands; and\
+if you develop symptoms or test positive for COVID-19, self-isolate until you recover.\
+Vaccination against COVID-19 is based on priority groups such as people aged 60 years and over , and those with\
+underlying medical problems such as high blood pressure, diabetes, chronic health problems, immunosuppression\
+(including HIV), obesity, cancer , pregnant persons, and unvaccinated people. In March 2023, WHO updated its\
+recommendations on primary series vaccination (two doses of any vaccine) as well as the need for booster doses.\
+These recommendations are time-limited and can change at any time depending on how the SARS-CoV-2 virus is\
+circulating in your area or country. It is important to stay up to date with local guidelines and recommendations\
+provided by your local health authority.\
+Since its introduction, COVID-19 vaccines have saved millions of lives across the world by providing protection against\
+severe disease, hospitalization, and death. Even though vaccines protect against severe disease and death, it is still\
+possible to spread SARS-CoV-2 to others after being vaccinated.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19) 2/310/5/25, 4:15 PM Coronavirus disease (COVID-19)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b\fs38\fsmilli19440 \cf3 WHO response\
+
+\f0\b0\fs19\fsmilli9720 The World Health Organization is the global coordinating agency for the response to the COVID-19 pandemic. The\
+Organization works with Member States and partners on all aspects of the pandemic response, including facilitating\
+research, developing guidance, coordinating vaccine development and distribution, and monitoring daily case\
+numbers and trends around the world.\
+Since April 2020, the Access to COVID-19 Tools (ACT) Accelerator , launched by WHO and partners, has supported the\
+fastest, most coordinated, and successful global effort in history to develop tools to fight a disease. COVAX, the\
+vaccines pillar of the ACT-Accelerator is a ground-breaking global collaboration to accelerate the development,\
+production, and equitable access to COVID-19 tests, treatments, and vaccines.\
+WHO provides global coordination and member state support on vaccine safety monitoring. It developed the target\
+product profiles for COVID-19 vaccines and provides R&D technical coordination.\
+WHO also leads work to improve global capacity and access to oxygen production, distribution and supply to patients.\
+Although WHO \cf5 announced the end of the emergency phase of COVID-19\cf3  in May 2023, the Organization continues to\
+coordinate the global response.\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs15\fsmilli7995 \cf2 https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-(covid-19) 3/3}

@@ -1,0 +1,126 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red13\green53\blue101;\red47\green53\blue64;
+\red13\green103\blue135;\red21\green22\blue24;\red9\green73\blue145;}
+{\*\expandedcolortbl;;\cspthree\c0\c0\c0;\cspthree\c12283\c27398\c45611;\cspthree\c24512\c26962\c31331;
+\cspthree\c20460\c47094\c58749;\cspthree\c11050\c11357\c12085;\cspthree\c15117\c36267\c61563;}
+\margl1440\margr1440\vieww22140\viewh11960\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs15\fsmilli7995 \cf2 10/5/25, 4:39 PM About Pandemic Influenza | Pandemic Flu | CDC\
+
+\fs17\fsmilli8887 The Trump Administration is working to reopen the government for the American people. Mission-critical activities of CDC will\
+continue during the Democrat-led government shutdown. Certain federal government activities have ceased due to a lack of\
+appropriated funding. During the government shutdown, only web sites supporting excepted functions will be updated. As a result,\
+the information on this website may not be up to date and the agency may not be able to respond to inquiries.\
+
+\fs44\fsmilli22217 \cf3 Pandemic Flu\
+
+\fs54\fsmilli27105 \cf4 About Pandemic Influenza\
+
+\fs18\fsmilli9257 For Everyone\
+
+\fs16\fsmilli8023 MAR. 27, 2024\
+
+\fs18\fsmilli9257 \cf5 PURPOSE\
+
+\fs22\fsmilli11109 \cf6 An influenza pandemic is a global outbreak of a new influenza A virus that is very different from current and recently circulating human\
+seasonal influenza A viruses.\
+Pandemics happen when new (novel) influenza A viruses emerge which are able to infect people easily and spread from person to person\
+in an efficient and sustained way.\
+
+\fs38\fsmilli19440 \cf3 Pandemic Basics\
+
+\fs22\fsmilli11109 \cf6 Because the virus is new to humans, very few people will have immunity against the pandemic virus, and a vaccine might not be widely\
+available. The new virus will make a lot of people sick. How sick people get will depend on the characteristics of the virus, whether or not people\
+have any immunity to that virus, and the health and age of the person being infected. With seasonal flu, for example, certain chronic health\
+conditions are known to make those people more susceptible to serious flu infections. The risk factors associated with seasonal flu can be found\
+at "\cf7 People at High Risk of Developing Flu\'96Related Complications\cf6 ." Influenza pandemics are uncommon; only occurred during the 20 
+\fs15\fsmilli7776 th\
+
+\fs22\fsmilli11109 century.\
+How often does it happen? Will most people be immune? Seasonal Flu Pandemic Flu\
+Happens annually and usually peaks\
+between December and February\
+Usually some immunity from previous\
+exposures and influenza vaccination\
+Rarely happens (three times in 20th\
+century)\
+Most people have little or no immunity\
+because they have no previous exposure to\
+the virus or similar viruses\
+Who is at risk for complications? Where can I get medical care? Certain people are at high-risk for serious\
+complications (infants, elderly, pregnant\
+women, extreme obesity and persons with\
+certain chronic medical conditions)\
+Health care providers and hospitals can\
+usually meet public and patient needs\
+Healthy people also may be at high risk for\
+serious complications\
+Health care providers and hospitals may be\
+overwhelmed\
+Alternate care sites may be available to\
+meet public and patient needs\
+Will a vaccine be available? Vaccine available for annual flu season\
+Usually, one dose of vaccine is needed for\
+most people\
+Although the US government maintains a\
+limited stockpile of pandemic vaccine,\
+vaccine may not be available in the early\
+stages of a pandemic\
+Two doses of vaccine may be needed\
+
+\fs15\fsmilli7995 \cf2 https://www.cdc.gov/pandemic-flu/basics/index.html 1/410/5/25, 4:39 PM About Pandemic Influenza | Pandemic Flu | CDC\
+
+\fs22\fsmilli11109 \cf6 Will antivirals be available?\
+Adequate supplies of antivirals are usually\
+available\
+Antiviral supply may not be adequate to\
+meet demand\
+How many people could get sick and\
+suffer complications?\
+Rates of medical visits, complications,\
+\cf7 hospitalizations\cf6  and death can vary from\
+low to high\
+CDC estimates that flu-related\
+hospitalizations since 2010 ranged from\
+140,000 to 710,000, while flu-related\
+deaths are estimated to have ranged from\
+12,000 to 56,000.\
+Rates of medical visits, complications,\
+hospitalizations and death can range from\
+moderate to high\
+Number of deaths could be much higher\
+than seasonal flu (e.g. The estimated U.S.\
+death toll during the 1918 pandemic was\
+approximately 675,000)\
+What impact will it have on schools and\
+workplaces?\
+Usually causes minor impact on the general\
+public, some schools may close and sick\
+people are encouraged to stay home\
+Manageable impact on domestic and world\
+economies\
+May cause major impact on the general\
+public, such as travel restrictions and\
+school or business closings\
+Potential for severe impact on domestic\
+and world economies\
+
+\fs15\fsmilli7995 \cf2 https://www.cdc.gov/pandemic-flu/basics/index.html 2/410/5/25, 4:39 PM About Pandemic Influenza | Pandemic Flu | CDC\
+https://www.cdc.gov/pandemic-flu/basics/index.html 3/410/5/25, 4:39 PM About Pandemic Influenza | Pandemic Flu | CDC\
+
+\fs17\fsmilli8640 \cf6 Seasonal Flu vs. Pandemic Flu Infographic\
+Seasonal Flu vs. Pandemic Flu Infographic\
+
+\fs38\fsmilli19440 \cf3 Resources\
+
+\fs22\fsmilli11109 \cf7 H5 Bird Flu: Current Situation\
+
+\fs16\fsmilli8331 \cf6 SOURCES\
+
+\fs18\fsmilli9257 CONTENT SOURCE:\
+\cf7 National Center for Immunization and Respiratory Diseases (NCIRD\
+)\
+
+\fs15\fsmilli7995 \cf2 https://www.cdc.gov/pandemic-flu/basics/index.html 4/4}
