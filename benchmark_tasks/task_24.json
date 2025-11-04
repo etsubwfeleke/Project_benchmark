@@ -1,0 +1,36 @@
+{
+  "id": 24,
+  "task_text": "[Virology][Summarization + Factual-Retrieval] Retrieve the mutations noted in SARS-CoV-2 variants within the MDPI paper and summarize their functional impact.",
+  "category": "Virology",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "The MDPI review cites specific spike-protein mutations associated with increased transmissibility or altered antigenicity; such mutations can increase binding affinity to host receptors or reduce neutralization by antibodies, informing the need for genomic surveillance and possible vaccine updates.",
+    "quiz": [
+      {
+        "question": "Why are spike-protein mutations important for vaccines?",
+        "options": [
+          "They determine cold-chain requirements",
+          "They can alter antigenicity and affect antibody neutralization",
+          "They change viral taxonomy",
+          "They modify RNA replication speed only"
+        ],
+        "answer": "They can alter antigenicity and affect antibody neutralization"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Mutations and functional impacts from MDPI review"
+      }
+    }
+  ]
+}

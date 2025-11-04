@@ -1,0 +1,42 @@
+{
+  "id": 30,
+  "task_text": "[Epidemiology][Comparative-Analysis] Compare outbreak-detection approaches between CDC Pandemic Flu protocols and WHO COVID-19 guidance.",
+  "category": "Epidemiology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "CDC protocols emphasize established sentinel surveillance and laboratory confirmation for influenza with predefined thresholds, while WHO COVID-19 guidance emphasizes broad testing, case reporting, and genomic surveillance for novel pathogen detection; both systems use indicators to trigger public-health action but differ in scale and emphasis given pathogen novelty.",
+    "quiz": [
+      {
+        "question": "Which guidance emphasizes genomic surveillance for novel variants?",
+        "options": [
+          "CDC Pandemic Flu only",
+          "WHO COVID-19 guidance",
+          "ACP vaccination policy",
+          "Local school guidelines"
+        ],
+        "answer": "WHO COVID-19 guidance"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "CDC_Pandemic_Flu.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Outbreak detection approaches comparison"
+      }
+    }
+  ]
+}

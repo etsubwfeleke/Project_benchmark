@@ -1,0 +1,18 @@
+{
+  "id": 13,
+  "task_text": "[Epidemiology][Factual-Retrieval] Give the pandemic-preparedness phases listed by the CDC Pandemic Flu guidelines.",
+  "category": "Epidemiology",
+  "task_type": "Factual-Retrieval",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "answer": "The CDC outlines phases including detection/early warning, containment, mitigation (widespread community transmission), and recovery/maintenance phases."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "CDC_Pandemic_Flu.txt"
+      }
+    }
+  ]
+}

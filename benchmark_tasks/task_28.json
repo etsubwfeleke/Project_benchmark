@@ -1,0 +1,36 @@
+{
+  "id": 28,
+  "task_text": "[Vaccinology][Summarization + Factual-Retrieval] Identify immunogenicity metrics cited in the MDPI paper and summarize what they reveal about vaccine performance.",
+  "category": "Vaccinology",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "MDPI cites neutralizing antibody titers, binding antibody levels, and T-cell response assays as immunogenicity metrics; higher neutralizing titers and robust cellular responses correlate with better protection in trials and inform expectations of vaccine effectiveness.",
+    "quiz": [
+      {
+        "question": "Which immunogenicity metric is most commonly used as a surrogate for protection?",
+        "options": [
+          "Neutralizing antibody titer",
+          "Hair color",
+          "Blood pressure",
+          "Body temperature"
+        ],
+        "answer": "Neutralizing antibody titer"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Immunogenicity metrics in MDPI review"
+      }
+    }
+  ]
+}

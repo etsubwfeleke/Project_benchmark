@@ -1,0 +1,18 @@
+{
+  "id": 12,
+  "task_text": "[Public Health Policy][Factual-Retrieval] State the WHO’s named global mechanism created to promote equitable vaccine access.",
+  "category": "Public Health Policy",
+  "task_type": "Factual-Retrieval",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "answer": "The WHO-referenced global mechanism is COVAX (the vaccine access/allocations mechanism)."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19_vaccinemarket.txt"
+      }
+    }
+  ]
+}

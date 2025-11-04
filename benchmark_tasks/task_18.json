@@ -1,0 +1,52 @@
+{
+  "id": 18,
+  "task_text": "[Public Health Policy][Comparative-Analysis] Compare how the WHO and ACP documents approach vaccine equity and access.",
+  "category": "Public Health Policy",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "Both WHO and ACP emphasize equity, but WHO focuses on global mechanisms and market dynamics (e.g., COVAX, supply transparency, international coordination), while ACP emphasizes national-level ethical frameworks prioritizing high-risk groups and operational allocation tradeoffs; together they underline both international allocation mechanisms and national prioritization policies.",
+    "quiz": [
+      {
+        "question": "Which document emphasizes global market mechanisms like COVAX?",
+        "options": [
+          "ACP paper",
+          "MDPI review",
+          "WHO vaccine market analysis",
+          "CDC Pandemic Flu guidance"
+        ],
+        "answer": "WHO vaccine market analysis"
+      },
+      {
+        "question": "Which perspective stresses national prioritization of high-risk groups?",
+        "options": [
+          "WHO global market analysis",
+          "ACP COVID-19 vaccination paper",
+          "WHO peacekeeping brief",
+          "MDPI vaccine immunology review"
+        ],
+        "answer": "ACP COVID-19 vaccination paper"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19_vaccinemarket.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Comparison of WHO and ACP equity approaches"
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": 31,
+  "task_text": "[Vaccinology][Comparative-Analysis] Compare cold-chain and storage-temperature requirements across vaccine types described in the WHO market analysis and MDPI paper.",
+  "category": "Vaccinology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "WHO and MDPI note variability in cold-chain needs: some mRNA vaccines may require ultra-cold storage compared with many viral-vector or protein-based vaccines that have standard cold-chain requirements; these differences affect logistics, distribution equity, and deployment feasibility in resource-limited settings.",
+    "quiz": [
+      {
+        "question": "Which vaccine platform is commonly associated with more stringent cold-chain needs?",
+        "options": [
+          "Viral-vector vaccines",
+          "mRNA vaccines",
+          "Oral polio vaccine",
+          "Inactivated vaccines requiring room temperature storage"
+        ],
+        "answer": "mRNA vaccines"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19_vaccinemarket.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Cold-chain requirements comparison"
+      }
+    }
+  ]
+}

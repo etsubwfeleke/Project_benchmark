@@ -1,0 +1,52 @@
+{
+  "id": 29,
+  "task_text": "[Public Health Policy][Comparative-Analysis] Compare the vaccine-allocation frameworks of WHO COVAX and the ACP’s suggested national-priority tiers.",
+  "category": "Public Health Policy",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "COVAX is framed as a global pooled procurement and allocation mechanism seeking equitable distribution across countries, while ACP focuses on national priority tiers emphasizing frontline workers and high-risk individuals; the two frameworks are complementary—COVAX addresses inter-country equity, ACP addresses intra-country prioritization.",
+    "quiz": [
+      {
+        "question": "Which mechanism is primarily focused on global pooled procurement?",
+        "options": [
+          "ACP national tiers",
+          "MDPI vaccine review",
+          "COVAX",
+          "CDC sentinel surveillance"
+        ],
+        "answer": "COVAX"
+      },
+      {
+        "question": "What does ACP primarily address?",
+        "options": [
+          "International contract renegotiation",
+          "National prioritization tiers for vaccination",
+          "Cold-chain manufacturing",
+          "Viral sequencing methods"
+        ],
+        "answer": "National prioritization tiers for vaccination"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19_vaccinemarket.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Comparison of COVAX and ACP allocation frameworks"
+      }
+    }
+  ]
+}

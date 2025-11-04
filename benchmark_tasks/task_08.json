@@ -1,0 +1,18 @@
+{
+  "id": 8,
+  "task_text": "[Public Health Policy][Summarization] Summarize how equity and ethical considerations are framed in the ACP paper’s discussion of global vaccine distribution.",
+  "category": "Public Health Policy",
+  "task_type": "Summarization",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "summary": "The ACP frames equity as a central ethical imperative: allocation should mitigate disparities, prioritize the vulnerable and frontline workers, and be informed by fairness, transparency, and international cooperation to prevent wealthier nations from monopolizing supply."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    }
+  ]
+}

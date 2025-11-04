@@ -1,0 +1,18 @@
+{
+  "id": 11,
+  "task_text": "[Vaccinology][Factual-Retrieval] Identify the specific vaccine platforms mentioned in the MDPI COVID-19 vaccine paper.",
+  "category": "Vaccinology",
+  "task_type": "Factual-Retrieval",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "answer": "The MDPI paper mentions mRNA vaccines and viral-vector vaccines (among other platforms)."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    }
+  ]
+}

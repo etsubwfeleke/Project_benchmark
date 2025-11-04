@@ -1,0 +1,42 @@
+{
+  "id": 32,
+  "task_text": "[Public Health Policy][Comparative-Analysis] Compare how communication strategies differ between the CDC Pandemic Flu plan and the WHO COVID-19 brief.",
+  "category": "Public Health Policy",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "CDC communication in the pandemic-flu plan centers on risk communication tailored to local health systems and the public with preplanned messaging, while WHO guidance focuses on global coordination, harmonized messaging, and guidance for member states; both stress transparency, timely information, and addressing misinformation.",
+    "quiz": [
+      {
+        "question": "Which source emphasizes harmonized global messaging for member states?",
+        "options": [
+          "CDC Pandemic Flu plan",
+          "ACP vaccination paper",
+          "WHO COVID-19 brief",
+          "MDPI vaccine review"
+        ],
+        "answer": "WHO COVID-19 brief"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "CDC_Pandemic_Flu.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Communication strategy comparison"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": 14,
+  "task_text": "[Public Health Policy][Factual-Retrieval] Provide the operational measures adopted by UN peacekeeping missions according to the WHO peacekeeping brief.",
+  "category": "Public Health Policy",
+  "task_type": "Factual-Retrieval",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "answer": "Operational measures include enhanced infection-prevention protocols, targeted testing and surveillance, isolation and medical evacuation plans, and tailored contingency measures to preserve mission-critical functions."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid10_peacekeeping.txt"
+      }
+    }
+  ]
+}

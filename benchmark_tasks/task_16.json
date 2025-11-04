@@ -1,0 +1,46 @@
+{
+  "id": 16,
+  "task_text": "[Vaccinology][Comparative-Analysis] Compare the single-dose versus two-dose vaccination strategies discussed in the ACP paper.",
+  "category": "Vaccinology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "The ACP paper contrasts single-dose and two-dose strategies: single-dose approaches can expand initial population coverage faster and may be favored during supply constraints, but two-dose regimens offer higher per-person and potentially longer-lasting protection where evidence supports full-series efficacy; policy choice depends on tradeoffs between speed, individual protection, and available evidence on durability.",
+    "quiz": [
+      {
+        "question": "What is a commonly-cited advantage of a single-dose vaccination strategy in the ACP discussion?",
+        "options": [
+          "Higher individual-level durability",
+          "Faster population-level coverage",
+          "Lower manufacturing cost per dose",
+          "No need for cold-chain logistics"
+        ],
+        "answer": "Faster population-level coverage"
+      },
+      {
+        "question": "What is the main advantage of two-dose regimens noted by ACP?",
+        "options": [
+          "Greater per-person efficacy and potentially longer protection",
+          "Faster initial rollout",
+          "Reduced side-effect profile",
+          "Simpler logistics"
+        ],
+        "answer": "Greater per-person efficacy and potentially longer protection"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    }
+  ]
+}

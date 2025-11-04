@@ -1,0 +1,36 @@
+{
+  "id": 25,
+  "task_text": "[Public Health Policy][Summarization + Factual-Retrieval] Identify the WHO entities responsible for vaccine-market analysis and summarize their findings on pricing transparency.",
+  "category": "Public Health Policy",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "WHO-led analyses and partner agencies assess market dynamics and recommend improving pricing transparency; findings emphasize opaque bilateral contracts and the need for greater disclosure to enable fairer allocation and negotiation leverage for lower-income countries.",
+    "quiz": [
+      {
+        "question": "What market issue did WHO analysis highlight as a barrier to equity?",
+        "options": [
+          "Excessive public disclosure",
+          "Opaque bilateral purchasing contracts",
+          "Too much vaccine manufacturing in low-income countries",
+          "Universal free pricing"
+        ],
+        "answer": "Opaque bilateral purchasing contracts"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19_vaccinemarket.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "WHO vaccine market analysis findings"
+      }
+    }
+  ]
+}

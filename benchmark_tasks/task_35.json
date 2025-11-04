@@ -1,0 +1,42 @@
+{
+  "id": 35,
+  "task_text": "[Public Health Policy][Comparative-Analysis] Compare peacekeeping-operation infection-prevention strategies with civilian-sector workplace policies in the WHO COVID-19 brief.",
+  "category": "Public Health Policy",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "Peacekeeping strategies prioritize mission continuity with field-adapted PPE guidelines, cohorting, and evacuation contingencies, while civilian workplace policies focus on community transmission reduction, workplace mitigation measures, and legal/regulatory compliance; both require tailored risk assessments and operational protocols.",
+    "quiz": [
+      {
+        "question": "Which setting emphasizes cohorting and evacuation contingency planning?",
+        "options": [
+          "Civilian offices",
+          "Peacekeeping operations",
+          "Retail stores",
+          "School playgrounds"
+        ],
+        "answer": "Peacekeeping operations"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid10_peacekeeping.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Peacekeeping vs civilian workplace prevention strategies"
+      }
+    }
+  ]
+}

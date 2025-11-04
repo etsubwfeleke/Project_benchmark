@@ -1,0 +1,36 @@
+{
+  "id": 22,
+  "task_text": "[Public Health Policy][Summarization + Factual-Retrieval] Identify the key logistical barriers to vaccine deployment mentioned in the ACP paper and summarize the proposed mitigation steps.",
+  "category": "Public Health Policy",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "ACP identifies workforce shortages, cold-chain and storage constraints, appointment systems, and vaccine hesitancy as logistical barriers; mitigation steps include expanding trained administration teams, optimizing distribution logistics, clear public communication to build trust, and allocation strategies that match supply to delivery capacity.",
+    "quiz": [
+      {
+        "question": "Which is NOT listed as a logistical barrier in the ACP paper?",
+        "options": [
+          "Cold-chain constraints",
+          "Vaccine hesitancy",
+          "Workforce shortages",
+          "Universal genomic sequencing"
+        ],
+        "answer": "Universal genomic sequencing"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    }
+  ]
+}

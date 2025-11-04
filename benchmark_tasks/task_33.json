@@ -1,0 +1,42 @@
+{
+  "id": 33,
+  "task_text": "[Epidemiology][Comparative-Analysis] Compare mortality-rate reporting frameworks in the WHO COVID-19 document and CDC Pandemic Flu guidelines.",
+  "category": "Epidemiology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "WHO guidance centers on harmonized mortality surveillance across countries, encouraging standardized definitions and excess-mortality analyses, while CDC pandemic-flu guidelines provide national-level reporting frameworks tailored to influenza mortality assessment; both stress data completeness and timeliness for policy decisions.",
+    "quiz": [
+      {
+        "question": "What analytic approach does WHO recommend for capturing underreported deaths?",
+        "options": [
+          "Excess-mortality analysis",
+          "Only confirmed PCR test counts",
+          "Phone surveys only",
+          "Ignoring inconsistencies"
+        ],
+        "answer": "Excess-mortality analysis"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "CDC_Pandemic_Flu.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Mortality reporting frameworks comparison"
+      }
+    }
+  ]
+}

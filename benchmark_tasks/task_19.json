@@ -1,0 +1,46 @@
+{
+  "id": 19,
+  "task_text": "[Vaccinology][Comparative-Analysis] Compare mRNA and viral-vector vaccine platforms as described in the MDPI article.",
+  "category": "Vaccinology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "The MDPI article contrasts mRNA vaccines (which deliver mRNA encoding antigens, enabling rapid design and strong humoral and cellular responses with lipid nanoparticle delivery) with viral-vector vaccines (which use a non-replicating viral vector to deliver antigen genes, offering robust immune stimulation but potential vector-immunity concerns); differences include platform speed, storage requirements, and immunological profiles.",
+    "quiz": [
+      {
+        "question": "Which vaccine platform is noted for rapid design and use of lipid nanoparticle delivery?",
+        "options": [
+          "Inactivated whole-virus vaccines",
+          "mRNA vaccines",
+          "Protein-subunit vaccines",
+          "Live-attenuated vaccines"
+        ],
+        "answer": "mRNA vaccines"
+      },
+      {
+        "question": "What is a potential limitation of viral-vector vaccines mentioned in MDPI?",
+        "options": [
+          "Vector-immunity concerns",
+          "Unable to induce T-cell responses",
+          "Always require ultra-cold storage",
+          "Cannot present spike protein"
+        ],
+        "answer": "Vector-immunity concerns"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    }
+  ]
+}

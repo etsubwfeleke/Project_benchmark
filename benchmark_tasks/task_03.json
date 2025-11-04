@@ -1,0 +1,18 @@
+{
+  "id": 3,
+  "task_text": "[Public Health Policy][Summarization] Summarize the policy recommendations from the ACP COVID-19 vaccination paper regarding vaccine-allocation priorities.",
+  "category": "Public Health Policy",
+  "task_type": "Summarization",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "summary": "The ACP paper recommends prioritizing vaccination for populations at highest risk of severe disease and exposure (healthcare workers, elderly, and high-risk comorbid groups), integrating equity considerations, and balancing rapid population coverage with ensuring full-course immunization where evidence supports it."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    }
+  ]
+}

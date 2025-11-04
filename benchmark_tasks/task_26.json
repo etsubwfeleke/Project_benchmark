@@ -1,0 +1,36 @@
+{
+  "id": 26,
+  "task_text": "[Epidemiology][Summarization + Factual-Retrieval] Provide the criteria defining pandemic phases in the CDC document and summarize how thresholds trigger policy escalation.",
+  "category": "Epidemiology",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "CDC criteria include epidemiological indicators such as sustained community transmission, healthcare capacity strain, and geographic spread; when thresholds (e.g., increasing case rates or rising hospitalization trends) are met, policies escalate from containment to mitigation, including broader NPIs and resource mobilization.",
+    "quiz": [
+      {
+        "question": "Which indicator is commonly used to trigger escalation from containment to mitigation?",
+        "options": [
+          "Stable low test positivity",
+          "Rising hospitalization rates",
+          "Completion of vaccine rollout",
+          "End of influenza season"
+        ],
+        "answer": "Rising hospitalization rates"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "CDC_Pandemic_Flu.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "CDC pandemic phases and trigger thresholds"
+      }
+    }
+  ]
+}

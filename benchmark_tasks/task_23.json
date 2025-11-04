@@ -1,0 +1,36 @@
+{
+  "id": 23,
+  "task_text": "[Epidemiology][Summarization + Factual-Retrieval] Extract the case-surveillance indicators described by the WHO COVID-19 document and summarize how they inform containment measures.",
+  "category": "Epidemiology",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "WHO surveillance indicators include case counts, test positivity rates, hospitalizations, and signal-based genomic monitoring; these indicators guide containment by signaling when to scale testing, target interventions, and implement or relax non-pharmaceutical measures based on trends and capacity thresholds.",
+    "quiz": [
+      {
+        "question": "Which indicator helps assess if testing is adequate relative to spread?",
+        "options": [
+          "Hospital bed occupancy",
+          "Test positivity rate",
+          "Vaccine uptake percentage",
+          "Vector surveillance"
+        ],
+        "answer": "Test positivity rate"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Surveillance indicators and their use in containment from WHO document"
+      }
+    }
+  ]
+}

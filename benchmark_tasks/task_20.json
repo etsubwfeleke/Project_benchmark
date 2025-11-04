@@ -1,0 +1,52 @@
+{
+  "id": 20,
+  "task_text": "[Public Health Policy][Comparative-Analysis] Compare peacekeeping-specific COVID-19 policies with national public-health measures in the WHO COVID-19 brief.",
+  "category": "Public Health Policy",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "Peacekeeping policies focus on operational continuity, mission-specific infection control, and evacuation protocols tailored to field constraints, whereas national public-health measures in WHO guidance are broader (population-level surveillance, legal measures, and healthcare surge capacity); the comparison highlights the need to adapt general guidance to operational contexts with constrained logistics.",
+    "quiz": [
+      {
+        "question": "Which setting emphasizes medical evacuation planning and mission continuity?",
+        "options": [
+          "National public-health planning",
+          "Peacekeeping operations",
+          "Seasonal influenza clinics",
+          "Local schools"
+        ],
+        "answer": "Peacekeeping operations"
+      },
+      {
+        "question": "Which guidance commonly addresses population-level surveillance and legal public-health measures?",
+        "options": [
+          "WHO peacekeeping brief",
+          "ACP vaccination operational memo",
+          "WHO COVID-19 national public-health brief",
+          "MDPI vaccine immunology review"
+        ],
+        "answer": "WHO COVID-19 national public-health brief"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid10_peacekeeping.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Comparison of peacekeeping vs national WHO measures"
+      }
+    }
+  ]
+}

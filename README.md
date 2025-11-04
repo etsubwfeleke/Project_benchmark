@@ -18,9 +18,9 @@ This repository contains my project for benchmarking Large Language Model (LLM) 
 
 ✔️ **Milestone 1: Proposal & Design** – Completed.  
 
-✔️ **Milestone 2: Data Preparation & Model Choice** – Inprogress.
+✔️ **Milestone 2: Data Preparation & Model Choice** – Completed.
 
-🔜 **Milestone 3: Implementation & Experiments** - (To be continued...)
+🔜 **Milestone 3: Implementation & Experiments** - In progress.
 
 🔜 **Milestone 4: Final Report & Presentation** - (To be continued...)
 
@@ -29,8 +29,9 @@ This repository contains my project for benchmarking Large Language Model (LLM) 
 ## Repository Structure
 
 ```
-/data         -> Benchmark tasks (JSON format)  
-/agents       -> Single-tool and multi-tool agent definitions  
+/benchmark_tasks         -> Benchmark tasks (JSON format)  
+agents.py       -> Single-tool and multi-tool agent definitions
+tests.py        -> Test suite for validating agents and tools  
 /evaluation   -> Metric calculation scripts  
 /safety       -> Adversarial test cases and sandbox configs  
 README.md     -> Project overview and milestones  

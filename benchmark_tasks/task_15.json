@@ -1,0 +1,18 @@
+{
+  "id": 15,
+  "task_text": "[Virology][Factual-Retrieval] Identify the principal route of SARS-CoV-2 transmission highlighted in the WHO COVID-19 brief.",
+  "category": "Virology",
+  "task_type": "Factual-Retrieval",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "answer": "The WHO brief highlights respiratory droplets and close-contact respiratory transmission as the principal routes."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    }
+  ]
+}

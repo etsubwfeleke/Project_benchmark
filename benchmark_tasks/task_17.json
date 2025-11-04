@@ -1,0 +1,52 @@
+{
+  "id": 17,
+  "task_text": "[Epidemiology][Comparative-Analysis] Compare pandemic-influenza transmission patterns (CDC document) with COVID-19 spread dynamics (WHO document).",
+  "category": "Epidemiology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "CDC pandemic-influenza guidance highlights seasonal patterns, rapid community spread, and the importance of strain monitoring and vaccine strain selection; WHO COVID-19 guidance emphasizes broad human-to-human respiratory transmission, potential for asymptomatic spread, and rapid global dispersal; key contrasts are influenza's seasonality and frequent antigenic shift/shift-driven vaccine updates versus SARS-CoV-2's novel emergence, variant-driven changes, and different patterns of asymptomatic transmission.",
+    "quiz": [
+      {
+        "question": "Which pathogen is typically associated with predictable seasonality that informs vaccine strain selection?",
+        "options": [
+          "SARS-CoV-2",
+          "Influenza virus",
+          "Ebola virus",
+          "Measles virus"
+        ],
+        "answer": "Influenza virus"
+      },
+      {
+        "question": "Which feature is emphasized in WHO COVID-19 guidance that complicates control?",
+        "options": [
+          "Asymptomatic transmission",
+          "Tick-borne spread",
+          "Water-borne transmission",
+          "Vector-driven seasonality"
+        ],
+        "answer": "Asymptomatic transmission"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "CDC_Pandemic_Flu.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid19.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Comparative summary of CDC_Pandemic_Flu.txt and who_covid19.txt"
+      }
+    }
+  ]
+}

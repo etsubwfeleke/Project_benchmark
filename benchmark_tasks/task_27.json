@@ -1,0 +1,36 @@
+{
+  "id": 27,
+  "task_text": "[Public Health Policy][Summarization + Factual-Retrieval] List equity-oriented recommendations from the ACP paper and summarize their ethical rationale.",
+  "category": "Public Health Policy",
+  "task_type": "Summarization + Factual-Retrieval",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "ACP recommends prioritizing high-risk and frontline groups, ensuring transparent allocation criteria, and supporting international mechanisms to address disparities; the ethical rationale centers on reducing preventable morbidity and mortality, fairness, and protecting health systems and social cohesion.",
+    "quiz": [
+      {
+        "question": "Which ethical principle is central to ACP equity recommendations?",
+        "options": [
+          "Maximizing profit",
+          "Fairness in allocation",
+          "Minimizing transparency",
+          "Prioritizing only single-dose strategies"
+        ],
+        "answer": "Fairness in allocation"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "ACP equity recommendations"
+      }
+    }
+  ]
+}

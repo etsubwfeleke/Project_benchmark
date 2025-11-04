@@ -1,0 +1,42 @@
+{
+  "id": 34,
+  "task_text": "[Vaccinology][Comparative-Analysis] Compare booster-dose rationale presented in the ACP and MDPI documents.",
+  "category": "Vaccinology",
+  "task_type": "Comparative-Analysis",
+  "agent_classification": "Multi-Tool",
+  "gold_end_state": {
+    "summary": "ACP discusses boosters in the context of waning immunity and expanding coverage strategies, while MDPI frames boosters based on immunogenicity data, variant-driven immune escape, and trial/post-marketing evidence; both support booster use when evidence shows improved protection or in response to variant threats.",
+    "quiz": [
+      {
+        "question": "Which evidence base is emphasized by MDPI for justifying boosters?",
+        "options": [
+          "Immunogenicity and real-world effectiveness data",
+          "Historical vaccine pricing",
+          "Media coverage only",
+          "Cold-chain logistics"
+        ],
+        "answer": "Immunogenicity and real-world effectiveness data"
+      }
+    ]
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "acp_covid19_vaccination.txt"
+      }
+    },
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "mdpi_covid19_vaccine.txt"
+      }
+    },
+    {
+      "tool_name": "quiz_generator",
+      "arguments": {
+        "text": "Booster rationale comparison"
+      }
+    }
+  ]
+}

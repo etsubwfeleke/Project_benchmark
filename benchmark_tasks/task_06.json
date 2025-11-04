@@ -1,0 +1,18 @@
+{
+  "id": 6,
+  "task_text": "[Public Health Policy][Summarization] Summarize how the WHO peacekeeping brief addresses operational continuity during the pandemic.",
+  "category": "Public Health Policy",
+  "task_type": "Summarization",
+  "agent_classification": "Single-Tool",
+  "gold_end_state": {
+    "summary": "The WHO peacekeeping brief advises measures to maintain mission continuity: enhanced infection prevention, testing and surveillance tailored to operational settings, isolation and medical evacuation protocols, and contingency planning to preserve critical functions while protecting personnel."
+  },
+  "oracle_plan": [
+    {
+      "tool_name": "content_extractor",
+      "arguments": {
+        "text": "who_covid10_peacekeeping.txt"
+      }
+    }
+  ]
+}
