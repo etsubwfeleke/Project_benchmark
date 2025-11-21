@@ -5,11 +5,11 @@
   "task_type": "Summarization",
   "agent_classification": "Single-Tool",
   "gold_end_state": {
-    "summary": "The WHO peacekeeping brief advises measures to maintain mission continuity: enhanced infection prevention, testing and surveillance tailored to operational settings, isolation and medical evacuation protocols, and contingency planning to preserve critical functions while protecting personnel."
+    "answer": "The WHO peacekeeping brief advises measures to maintain mission continuity: enhanced infection prevention, testing and surveillance tailored to operational settings, isolation and medical evacuation protocols, and contingency planning to preserve critical functions while protecting personnel."
   },
   "oracle_plan": [
     {
-      "tool_name": "content_extractor",
+      "tool_name": "web_search",
       "arguments": {
         "text": "who_covid10_peacekeeping.txt"
       }

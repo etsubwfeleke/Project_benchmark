@@ -3,16 +3,9 @@
   "task_text": "[Virology][Summarization] Summarize the main virological characteristics of SARS-CoV-2 described in the WHO COVID-19 brief.",
   "category": "Virology",
   "task_type": "Summarization",
-  "agent_classification": "Single-Tool",
+  "agent_classification": "No-Tool",
   "gold_end_state": {
-    "summary": "SARS-CoV-2 is a novel coronavirus with an RNA genome, transmitted primarily via respiratory droplets and close contact; it has demonstrated rapid human-to-human transmission, the capacity to cause asymptomatic and symptomatic infections across age groups, and to generate variants with mutations that can affect transmissibility and immune escape."
+    "answer": "SARS-CoV-2 is a novel coronavirus with an RNA genome, transmitted primarily via respiratory droplets and close contact; it has demonstrated rapid human-to-human transmission, the capacity to cause asymptomatic and symptomatic infections across age groups, and to generate variants with mutations that can affect transmissibility and immune escape."
   },
-  "oracle_plan": [
-    {
-      "tool_name": "content_extractor",
-      "arguments": {
-        "text": "WHO_COVID-19_brief.txt"
-      }
-    }
-  ]
+  "oracle_plan": []
 }

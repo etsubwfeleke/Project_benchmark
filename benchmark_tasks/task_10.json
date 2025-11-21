@@ -5,11 +5,11 @@
   "task_type": "Summarization",
   "agent_classification": "Single-Tool",
   "gold_end_state": {
-    "summary": "The CDC guidance recommends maintaining layered non-pharmaceutical interventions (masking, distancing, hand hygiene, targeted closures) while rolling out vaccines, adjusting interventions as coverage and epidemiological indicators evolve to avoid premature relaxation."
+    "answer": "The CDC guidance recommends maintaining layered non-pharmaceutical interventions (masking, distancing, hand hygiene, targeted closures) while rolling out vaccines, adjusting interventions as coverage and epidemiological indicators evolve to avoid premature relaxation."
   },
   "oracle_plan": [
     {
-      "tool_name": "content_extractor",
+      "tool_name": "web_search",
       "arguments": {
         "text": "CDC_Pandemic_Flu.txt"
       }
