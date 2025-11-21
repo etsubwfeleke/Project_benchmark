@@ -3,16 +3,9 @@
   "task_text": "[Epidemiology][Summarization] Summarize the WHO COVID-19 document’s timeline of major pandemic-response phases.",
   "category": "Epidemiology",
   "task_type": "Summarization",
-  "agent_classification": "Single-Tool",
+  "agent_classification": "No-Tool",
   "gold_end_state": {
-    "summary": "The WHO timeline outlines phases from initial detection and containment through escalation to widespread community transmission, widescale mitigation and healthcare surge response, and finally recovery and sustained control, with surveillance and public-health measures adjusted at each phase."
+    "answer": "The WHO timeline outlines phases from initial detection and containment through escalation to widespread community transmission, widescale mitigation and healthcare surge response, and finally recovery and sustained control, with surveillance and public-health measures adjusted at each phase."
   },
-  "oracle_plan": [
-    {
-      "tool_name": "content_extractor",
-      "arguments": {
-        "text": "who_covid19.txt"
-      }
-    }
-  ]
+  "oracle_plan": []
 }

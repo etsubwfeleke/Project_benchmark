@@ -1,18 +1,11 @@
 {
   "id": 4,
-  "task_text": "[Vaccinology][Summarization] Summarize the MDPI COVID-19 vaccine article’s explanation of immune-response mechanisms triggered by mRNA vaccines.",
+  "task_text": "[Vaccinology][Summarization] Summarize the MDPI COVID-19 vaccine article explanation of immune-response mechanisms triggered by mRNA vaccines.",
   "category": "Vaccinology",
   "task_type": "Summarization",
-  "agent_classification": "Single-Tool",
+  "agent_classification": "No-Tool",
   "gold_end_state": {
-    "summary": "The MDPI review explains that mRNA vaccines deliver genetic instructions for viral antigens (e.g., spike protein) to host cells, prompting antigen expression that stimulates both humoral (neutralizing antibodies) and cellular (T-cell) immune responses, with measured immunogenicity used to infer likely protection."
+    "answer": "The MDPI review explains that mRNA vaccines deliver genetic instructions for viral antigens (e.g., spike protein) to host cells, prompting antigen expression that stimulates both humoral (neutralizing antibodies) and cellular (T-cell) immune responses, with measured immunogenicity used to infer likely protection."
   },
-  "oracle_plan": [
-    {
-      "tool_name": "content_extractor",
-      "arguments": {
-        "text": "mdpi_covid19_vaccine.txt"
-      }
-    }
-  ]
+  "oracle_plan": []
 }
