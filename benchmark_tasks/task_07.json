@@ -11,7 +11,7 @@
     {
       "tool_name": "web_search",
       "arguments": {
-        "text": "who_covid19_vaccinemarket.txt"
+        "query": "WHO COVID-19 vaccine market analysis production capacity and global supply bottlenecks" 
       }
     }
   ]

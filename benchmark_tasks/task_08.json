@@ -11,7 +11,7 @@
     {
       "tool_name": "web_search",
       "arguments": {
-        "text": "acp_covid19_vaccination.txt"
+        "query": "ACP paper global vaccine distribution equity ethical considerations"
       }
     }
   ]

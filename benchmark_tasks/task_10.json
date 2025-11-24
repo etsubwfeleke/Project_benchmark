@@ -11,7 +11,7 @@
     {
       "tool_name": "web_search",
       "arguments": {
-        "text": "CDC_Pandemic_Flu.txt"
+        "query": "CDC Pandemic Flu document non-pharmaceutical interventions vaccination strategy"
       }
     }
   ]

@@ -11,7 +11,7 @@
     {
       "tool_name": "web_search",
       "arguments": {
-        "text": "who_covid10_peacekeeping.txt"
+        "query": "WHO peacekeeping brief operational continuity during COVID-19 pandemic"
       }
     }
   ]

@@ -1,6 +1,6 @@
 {
   "id": 9,
-  "task_text": "[Virology][Summarization] Summarize the MDPI articles description of viral-variant emergence and implications for vaccine adaptation.",
+  "task_text": "[Virology][Summarization] Summarize the MDPI article's description of viral-variant emergence and implications for vaccine adaptation.",
   "category": "Virology",
   "task_type": "Summarization",
   "agent_classification": "Single-Tool",
@@ -11,7 +11,7 @@
     {
       "tool_name": "web_search",
       "arguments": {
-        "text": "mdpi_covid19_vaccine.txt"
+        "query": "MDPI article viral variant emergence vaccine adaptation"
       }
     }
   ]
