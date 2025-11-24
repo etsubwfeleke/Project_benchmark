@@ -1,17 +1,17 @@
 {
   "id": 9,
-  "task_text": "[Virology][Summarization] Summarize the MDPI article’s description of viral-variant emergence and implications for vaccine adaptation.",
+  "task_text": "[Virology][Summarization] Summarize the MDPI article's description of viral-variant emergence and implications for vaccine adaptation.",
   "category": "Virology",
   "task_type": "Summarization",
   "agent_classification": "Single-Tool",
   "gold_end_state": {
-    "summary": "The MDPI article explains that viral variants arise from mutation and selection pressures, potentially changing transmissibility or antigenicity; it highlights the need for genomic surveillance and potential vaccine updates or booster strategies if immune escape reduces vaccine effectiveness."
+    "answer": "The MDPI article explains that viral variants arise from mutation and selection pressures, potentially changing transmissibility or antigenicity; it highlights the need for genomic surveillance and potential vaccine updates or booster strategies if immune escape reduces vaccine effectiveness."
   },
   "oracle_plan": [
     {
-      "tool_name": "content_extractor",
+      "tool_name": "web_search",
       "arguments": {
-        "text": "mdpi_covid19_vaccine.txt"
+        "query": "MDPI article viral variant emergence vaccine adaptation"
       }
     }
   ]

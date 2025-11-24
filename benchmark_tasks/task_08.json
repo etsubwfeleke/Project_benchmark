@@ -5,13 +5,13 @@
   "task_type": "Summarization",
   "agent_classification": "Single-Tool",
   "gold_end_state": {
-    "summary": "The ACP frames equity as a central ethical imperative: allocation should mitigate disparities, prioritize the vulnerable and frontline workers, and be informed by fairness, transparency, and international cooperation to prevent wealthier nations from monopolizing supply."
+    "answer": "The ACP frames equity as a central ethical imperative: allocation should mitigate disparities, prioritize the vulnerable and frontline workers, and be informed by fairness, transparency, and international cooperation to prevent wealthier nations from monopolizing supply."
   },
   "oracle_plan": [
     {
-      "tool_name": "content_extractor",
+      "tool_name": "web_search",
       "arguments": {
-        "text": "acp_covid19_vaccination.txt"
+        "query": "ACP paper global vaccine distribution equity ethical considerations"
       }
     }
   ]

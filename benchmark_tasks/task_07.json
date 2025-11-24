@@ -5,13 +5,13 @@
   "task_type": "Summarization",
   "agent_classification": "Single-Tool",
   "gold_end_state": {
-    "summary": "The WHO market analysis identifies limited manufacturing surge capacity, raw-material and fill-finish bottlenecks, and inequitable purchase power as key constraints; it recommends transparency in contracts, diversified production, and global coordination to improve allocation fairness."
+    "answer": "The WHO market analysis identifies limited manufacturing surge capacity, raw-material and fill-finish bottlenecks, and inequitable purchase power as key constraints; it recommends transparency in contracts, diversified production, and global coordination to improve allocation fairness."
   },
   "oracle_plan": [
     {
-      "tool_name": "content_extractor",
+      "tool_name": "web_search",
       "arguments": {
-        "text": "who_covid19_vaccinemarket.txt"
+        "query": "WHO COVID-19 vaccine market analysis production capacity and global supply bottlenecks" 
       }
     }
   ]

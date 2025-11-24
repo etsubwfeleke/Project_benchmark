@@ -3,16 +3,9 @@
   "task_text": "[Epidemiology][Summarization] Summarize how the CDC Pandemic Flu document outlines surveillance and early-warning systems for pandemic detection.",
   "category": "Epidemiology",
   "task_type": "Summarization",
-  "agent_classification": "Single-Tool",
+  "agent_classification": "No-Tool",
   "gold_end_state": {
-    "summary": "The CDC Pandemic Flu guidance emphasizes layered surveillance including clinical case reporting, laboratory testing, sentinel site monitoring, and syndromic surveillance to detect aberrations early; these systems feed predefined indicators and thresholds that trigger escalation of public-health responses."
+    "answer": "The CDC Pandemic Flu guidance emphasizes layered surveillance including clinical case reporting, laboratory testing, sentinel site monitoring, and syndromic surveillance to detect aberrations early; these systems feed predefined indicators and thresholds that trigger escalation of public-health responses."
   },
-  "oracle_plan": [
-    {
-      "tool_name": "content_extractor",
-      "arguments": {
-        "text": "CDC_Pandemic_Flu.txt"
-      }
-    }
-  ]
+  "oracle_plan": []
 }
