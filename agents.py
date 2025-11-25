@@ -2,7 +2,7 @@ import glob
 import json
 import re
 import time
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional, Tuple
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
@@ -10,18 +10,25 @@ from openai import OpenAI
 
 # Load credentials from .env file
 load_dotenv() 
-# OPENAI_API_KEY and GEMINI_API_KEY should be set in the .env file
+# OPENAI_API_KEY and GOOGLE_API_KEY should be set in the .env file
 openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else print("Error: OPENAI_API_KEY not found in .env")
 
 google_api_key = os.getenv("GOOGLE_API_KEY")
+if google_api_key:
+    genai.configure(api_key=google_api_key)
+else:
+    print("Error: GOOGLE_API_KEY not found in .env")
 
 DEBUG_MODE = True
 
 def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
-    """ Helper function to call the specified LLM and return output and token count. 
+    """ 
+    Helper function to call the specified LLM and return output and token count.
+    
     Args: 
-    model_name: e.g., "gpt-4", "gemini-pro"
-    prompt: the prompt 
+        model_name: e.g., "gpt-4", "gemini-pro"
+        prompt: the prompt 
     
     Returns:
         A tuple of (response_text, token_count)
@@ -42,12 +49,12 @@ def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
             response = model.generate_content(prompt)
             
             if not response.parts:
-                return "Error: Model Blocked response.", 0
+                return "Error: Response was blocked by the model's safety filters or content policy. Try rephrasing your query.", 0
             
             text = response.text
             tokens = 0
-            if hasattr(response, "useage_metadata"):
-                tonkens =response.usage_metadata.total_token_count
+            if hasattr(response, "usage_metadata"):
+                tokens = response.usage_metadata.total_token_count
             
             return text, tokens
         
