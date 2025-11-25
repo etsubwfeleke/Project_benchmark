@@ -37,7 +37,7 @@ def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
         print(f"\n[DEBUG] Calling LLM: {model_name} with prompt length {len(prompt)}")
         
     if not prompt:
-        return "Prompt cannot be empty.", 0
+        return "Error: Prompt cannot be empty.", 0
 
     try:
         
@@ -257,7 +257,7 @@ class SingleToolAgent:
     
     def _parse_tool_call(self, llm_response: str) -> Optional[Dict]:
         action_match = re.search(r'Action:\s*(\w+)', llm_response)
-        input_match = re.search(r'Action Input:\s*[\"\']?(.*?)[\"\']?(?=\nObservation:|\n|$)', llm_response, re.DOTALL)
+        input_match = re.search(r'Action Input:\s*[\"\']?(.*?)[\"\']?\s*(?:\nObservation:|\n|Thought:|$)', llm_response, re.DOTALL)
         
         if action_match and input_match:
             return {"tool": action_match.group(1), "query": input_match.group(1).strip()}
@@ -305,37 +305,40 @@ Thought:"""
         
         tool_call = self._parse_tool_call(llm_response_1)
         
-        if tool_call and tool_call["tool"] == "web_search":
-            search_result = web_search(tool_call["query"])
-            
-            run_log["steps"].append({
-                "type": "tool_call",
-                "tool_name": "web_search",
-                "input": tool_call["query"],
-                "output": search_result
-            })
-            
-            final_prompt = f"{react_prompt}\n{llm_response_1}\nObservation: {search_result}\nThought:"
-            llm_response_2, tokens_2 = call_llm(self.model_name, final_prompt)
-            
-            if "Final Answer:" in llm_response_2:
-                final_answer = llm_response_2.split("Final Answer:")[-1].strip()
-            else:
-                final_answer = llm_response_2
+        if tool_call:
+            if tool_call["tool"] == "web_search":
+                search_result = web_search(tool_call["query"])
+                
+                run_log["steps"].append({
+                    "type": "tool_call",
+                    "tool_name": "web_search",
+                    "input": tool_call["query"],
+                    "output": search_result
+                })
+                
+                final_prompt = f"{react_prompt}\n{llm_response_1}\nObservation: {search_result}\nThought:"
+                llm_response_2, tokens_2 = call_llm(self.model_name, final_prompt)
+                
+                if "Final Answer:" in llm_response_2:
+                    final_answer = llm_response_2.split("Final Answer:")[-1].strip()
+                else:
+                    final_answer = llm_response_2
 
-            run_log["steps"].append({
-                "type": "llm_call",
-                "model": self.model_name,
-                "input": final_prompt,
-                "output": llm_response_2,
-                "tokens": tokens_2
-            })
-            run_log["total_tokens"] += tokens_2
-            run_log["final_answer"] = final_answer
-            
+                run_log["steps"].append({
+                    "type": "llm_call",
+                    "model": self.model_name,
+                    "input": final_prompt,
+                    "output": llm_response_2,
+                    "tokens": tokens_2
+                })
+                run_log["total_tokens"] += tokens_2
+                run_log["final_answer"] = final_answer
+            else:
+                run_log["final_answer"] = f"Error: Tool '{tool_call['tool']}' is not available. Only 'web_search' is supported." 
+                
         else:
             # If agent didn't call tool, just return what it said
-            run_log["final_answer"] = llm_response_1 
+            run_log["final_answer"] = llm_response_1
         
         run_log["end_time"] = time.time()
         run_log["latency_seconds"] = run_log["end_time"] - run_log["start_time"]
@@ -416,6 +419,7 @@ Thought:"""
                 tool_result, tool_token_cost = quiz_generator(tool_input, model_name=self.model_name)
             else:
                 tool_result = f"Error: Unknown tool {tool_name}"
+                tool_token_cost = 0
 
             run_log["steps"].append({
                 "type": "tool_call",
@@ -458,14 +462,16 @@ def main():
     print("\n--- Testing SingleToolAgent with GPT-4o-mini ---")
     agent_gpt = SingleToolAgent("gpt-4o-mini")
     log_gpt = agent_gpt.run("What are the risk factors for heart disease?")
-    print(f"Final Answer: {log_gpt['final_answer'][:150]}...")
+    final_answer = log_gpt["final_answer"] or ""
+    print(f"Final Answer: {final_answer[:150]}...")
     print(f"Total Tokens: {log_gpt['total_tokens']}")
 
     # 2. Test Gemini
     print("\n--- Testing SingleToolAgent with Gemini-1.5-flash ---")
     agent_gemini = SingleToolAgent("gemini-1.5-flash")
     log_gemini = agent_gemini.run("What are the risk factors for heart disease?")
-    print(f"Final Answer: {log_gemini['final_answer'][:150]}...")
+    final_answer = log_gemini["final_answer"] or ""
+    print(f"Final Answer: {final_answer[:150]}...")
     print(f"Total Tokens: {log_gemini['total_tokens']}")
 
 if __name__ == "__main__":
