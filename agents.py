@@ -18,7 +18,7 @@ google_api_key = os.getenv("GOOGLE_API_KEY")
 if google_api_key:
     genai.configure(api_key=google_api_key)
 else:
-    print("Error: GOOGLE_API_KEY not found in .env")
+    print("Error: GOOGLE_API_KEY not found in .env Gemini models will not be available.")
 
 DEBUG_MODE = True
 
@@ -49,7 +49,7 @@ def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
             response = model.generate_content(prompt)
             
             if not response.parts:
-                return "Error: Response was blocked by the model's safety filters or content policy. Try rephrasing your query.", 0
+                return f"Error: Response was blocked due to {response.prompt_feedback.block_reason}", 0
             
             text = response.text
             tokens = 0
@@ -59,8 +59,8 @@ def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
             return text, tokens
         
         elif "gpt" in model_name.lower():
-            # if not openai_client:
-            #     return "Error: OPENAI_API_KEY not found in .env", 0
+            if not openai_client:
+                return "Error: OPENAI_API_KEY not found in .env", 0
             
             response = openai_client.chat.completions.create(
                 model=model_name,
@@ -159,6 +159,13 @@ def web_search(query: str) -> str:
 def content_extractor(text: str, model_name: str = "gpt-4o-mini") -> Tuple[str, int]:
     """
     Extracts and summarizes key information from text using an LLM.
+    
+    Args:  
+        text: The text to extract key information from  
+        model_name: The LLM model to use (default: "gpt-4o-mini")  
+
+    Returns:  
+        Tuple[str, int]: A tuple of (extracted_summary, token_count)  
     """
     prompt = f"""You are a content extraction specialist. Extract the key information from the following text and provide a concise summary.
 
@@ -172,6 +179,13 @@ Provide a clear, structured summary:"""
 def quiz_generator(text: str, model_name: str = "gpt-4o-mini") -> Tuple[str, int]:
     """
     Generates a multiple-choice quiz from provided text using an LLM.
+    
+    Args:
+        text: The text to generate quiz questions from
+        model_name: The LLM model to use (default: "gpt-4o-mini")
+
+    Returns:
+        Tuple[str, int]: A tuple of (quiz_text, token_count)
     """
     
     prompt = f"""You are a quiz generator. Create a 3-question multiple-choice quiz based on the following text. Each question should have 4 options (A, B, C, D) with one correct answer.
@@ -432,7 +446,7 @@ Thought:"""
         else:
             run_log["final_answer"] = llm_response_1
         run_log["end_time"] = time.time()
-        run_log["latency_seconds"] = time.time() - run_log["start_time"]
+        run_log["latency_seconds"] = run_log["end_time"] - run_log["start_time"]
         return run_log
 
 def main():
