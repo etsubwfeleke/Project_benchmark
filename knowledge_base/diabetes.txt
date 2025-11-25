@@ -1,0 +1,7 @@
+Diabetes is a chronic health condition affecting how your body turns food into energy.
+Most food is broken down into sugar (glucose) and released into your bloodstream.
+When blood sugar goes up, it signals your pancreas to release insulin.
+Type 1 diabetes is caused by an autoimmune reaction that stops your body from making insulin.
+Type 2 diabetes occurs when your body doesn't use insulin well and can't keep blood sugar at normal levels.
+Prevention includes maintaining a healthy weight, being physically active, and eating healthy foods.
+    
