@@ -59,8 +59,8 @@ def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
             return text, tokens
         
         elif "gpt" in model_name.lower():
-            if not openai_client:
-                return "Error: OPENAI_API_KEY not found in .env", 0
+            # if not openai_client:
+            #     return "Error: OPENAI_API_KEY not found in .env", 0
             
             response = openai_client.chat.completions.create(
                 model=model_name,
@@ -76,7 +76,7 @@ def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
         
     except Exception as e:
         print(f"API Call Error ({model_name}): {e}")
-        return f"API Call Error: {str(e)}", 0
+        return f"API Call Error: ({model_name}): {str(e)}", 0
 
 # STATIC KNOWLEDGE BASE (For Reproducible Web Search)
 
@@ -199,6 +199,8 @@ class NoToolAgent:
         self.model_name = model_name
     
     def run(self, prompt: str) -> Dict:
+        """Execute the agent and return a log of the run."""
+        
         run_log = {
             "agent_type": "no_tool",
             "start_time": time.time(),
@@ -241,7 +243,7 @@ class SingleToolAgent:
     
     def _parse_tool_call(self, llm_response: str) -> Optional[Dict]:
         action_match = re.search(r'Action:\s*(\w+)', llm_response)
-        input_match = re.search(r'Action Input:\s*["\']?([^"\']+)["\']?', llm_response, re.DOTALL)
+        input_match = re.search(r'Action Input:\s*[\"\']?(.*?)[\"\']?(?=\nObservation:|\n|$)', llm_response, re.DOTALL)
         
         if action_match and input_match:
             return {"tool": action_match.group(1), "query": input_match.group(1).strip()}
@@ -311,7 +313,7 @@ Thought:"""
                 "type": "llm_call",
                 "model": self.model_name,
                 "input": final_prompt,
-                "output": final_answer,
+                "output": llm_response_2,
                 "tokens": tokens_2
             })
             run_log["total_tokens"] += tokens_2
@@ -403,7 +405,7 @@ Thought:"""
 
             run_log["steps"].append({
                 "type": "tool_call",
-                "model": tool_name, 
+                "tool_name": tool_name, 
                 "input": tool_input,
                 "output": tool_result,
                 "tokens": tool_token_cost
@@ -422,7 +424,7 @@ Thought:"""
                 "type": "llm_call",
                 "model": self.model_name,
                 "input": final_prompt,
-                "output": final_answer,
+                "output": llm_response_2,
                 "tokens": tokens_2
             })
             run_log["total_tokens"] += tokens_2
