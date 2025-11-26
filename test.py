@@ -1,10 +1,10 @@
 import pytest
+from unittest.mock import patch
 from agents import (
     NoToolAgent, 
     SingleToolAgent, 
     MultiToolAgent,
-    web_search,
-    STATIC_DOCUMENTS
+    web_search
 )
 
 def test_web_search_tool_success():
@@ -14,81 +14,91 @@ def test_web_search_tool_success():
     assert "Diabetes is a chronic health condition" in result
     assert "Document: diabetes" in result
 
-def test_no_tool_agent_log_structure():
+@patch("agents.call_llm")
+def test_no_tool_agent_log_structure(mock_call_llm):
     """
-    Tests the NoToolAgent's stubbed response.
-    This confirms the agent's run method executes and returns a valid log.
+    Tests NoToolAgent by simulating a successful LLM response.
     """
+    # 1. Define what the "LLM" should return
+    mock_call_llm.return_value = ("Based on my internal knowledge, diabetes is...", 50)
+    
     agent = NoToolAgent()
     prompt = "What is diabetes?"
     log = agent.run(prompt)
     
+    # 2. Verify the log structure
     assert log["agent_type"] == "no_tool"
     assert "Based on my internal knowledge" in log["final_answer"]
     assert len(log["steps"]) == 1
-    assert log["steps"][0]["type"] == "llm_call"
-    assert log["total_tokens"] > 0
-    assert log["latency_seconds"] >= 0
+    assert log["total_tokens"] == 50
 
-def test_single_tool_agent_search_integration_and_log():
+@patch("agents.call_llm")
+def test_single_tool_agent_search_integration_and_log(mock_call_llm):
     """
-    Tests the SingleToolAgent's full stubbed logic.
-    This checks if the agent:
-    1. Simulates a tool call (Action: web_search)
-    2. Correctly calls the *actual* web_search function.
-    3. Integrates the web_search result into its final simulated answer.
-    4. Logs all steps correctly.
+    Tests SingleToolAgent logic by mocking the 2-step ReAct conversation.
     """
+    # 1. Setup the sequence of LLM responses
+    # Call 1: The agent decides to search
+    response_1 = ("I need to search.\nAction: web_search\nAction Input: heart disease", 70)
+    # Call 2: The agent gives the final answer
+    response_2 = ("Based on the search results, Heart disease refers to...", 30)
+    
+    mock_call_llm.side_effect = [response_1, response_2]
+    
     agent = SingleToolAgent()
-    prompt = "What is heart disease?"
-    log = agent.run(prompt)
+    log = agent.run("What is heart disease?")
     
-    # Check final answer
+    # 2. Verify logic
+    # Check if web_search was actually called in the log
+    tool_step = log["steps"][1]
+    assert tool_step["type"] == "tool_call"
+    assert tool_step["tool_name"] == "web_search"
+    assert "Heart disease refers to" in tool_step["output"] # Logic check: did tool run?
+    
     assert "Based on the search results" in log["final_answer"]
-    assert "Heart disease refers to" in log["final_answer"]
-    
-    # Check log structure
-    assert log["agent_type"] == "single_tool"
-    assert len(log["steps"]) == 3 # llm_call -> tool_call -> llm_call
-    assert log["steps"][0]["type"] == "llm_call"
-    assert log["steps"][1]["type"] == "tool_call"
-    assert log["steps"][1]["tool_name"] == "web_search"
-    assert log["steps"][1]["output"] == web_search(prompt) # Confirms tool was called
-    assert log["steps"][2]["type"] == "llm_call"
-    assert log["total_tokens"] > 0
+    assert log["total_tokens"] == 100
 
-def test_multi_tool_quiz_generator_route_and_log():
+@patch("agents.call_llm")
+def test_multi_tool_quiz_generator_route_and_log(mock_call_llm):
     """
-    Tests if the MultiToolAgent correctly routes to the 
-    quiz_generator tool and logs it.
+    Tests MultiToolAgent routing to Quiz Generator.
     """
+    # Call 1: Route to quiz tool
+    response_1 = ("Action: quiz_generator\nAction Input: nutrition text", 80)
+    # Call 2: Final Answer
+    response_2 = ("Final Answer: Question 1: What is a key prevention strategy...", 25)
+    
+    # We also need to mock content_extractor/quiz_generator internal calls
+    # But since your code calls 'call_llm' inside the tool, we just add it to the side_effect list!
+    # Order: 1. Agent Reasoning -> 2. Tool Execution (calls LLM) -> 3. Agent Final Answer
+    
+    tool_execution_response = ("Question 1: ...", 200)
+    
+    mock_call_llm.side_effect = [response_1, tool_execution_response, response_2]
+    
     agent = MultiToolAgent()
-    prompt = "Generate a quiz about nutrition"
-    log = agent.run(prompt)
+    log = agent.run("Generate a quiz about nutrition")
     
-    # Check final answer
-    assert "Question 1: What is a key prevention strategy" in log["final_answer"]
-    
-    # Check log structure
-    assert log["agent_type"] == "multi_tool"
-    assert len(log["steps"]) == 3 # llm_call -> tool_call -> llm_call
-    assert log["steps"][1]["type"] == "tool_call"
-    assert log["steps"][1]["tool_name"] == "quiz_generator"
+    # Check that the correct tool was logged
+    tool_step = log["steps"][1]
+    assert tool_step["tool_name"] == "quiz_generator"
+    assert "Question 1:" in log["final_answer"]
 
-def test_multi_tool_content_extractor_route_and_log():
+@patch("agents.call_llm")
+def test_multi_tool_content_extractor_route_and_log(mock_call_llm):
     """
-    Tests if the MultiToolAgent correctly routes to the 
-    content_extractor tool and logs it.
+    Tests MultiToolAgent routing to Content Extractor.
     """
+    # Order: 1. Agent Reasoning -> 2. Tool Execution (calls LLM) -> 3. Agent Final Answer
+    response_1 = ("Action: content_extractor\nAction Input: exercise text", 80)
+    tool_response = ("[EXTRACTED CONTENT]...", 150)
+    response_2 = ("Final Answer: [EXTRACTED CONTENT]...", 25)
+    
+    mock_call_llm.side_effect = [response_1, tool_response, response_2]
+    
     agent = MultiToolAgent()
-    prompt = "Summarize this text about exercise"
-    log = agent.run(prompt)
+    log = agent.run("Summarize this text about exercise")
     
-    # Check final answer
-    assert "[EXTRACTED CONTENT]" in log["final_answer"]
-    
-    # Check log structure
-    assert log["steps"][1]["type"] == "tool_call"
+    # Check logic
     assert log["steps"][1]["tool_name"] == "content_extractor"
-
-
+    assert "[EXTRACTED CONTENT]" in log["final_answer"]

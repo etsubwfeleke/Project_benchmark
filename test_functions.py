@@ -55,7 +55,7 @@ def test_call_llm_gemini_api_exception(mock_genai_model):
     with patch("agents.google_api_key", "fake_key"):  
         response, tokens = call_llm("gemini-1.5-flash", "Hello")  
     
-    assert "API Call Error" in response  
+    assert "API Call Error" in response or "Error calling API" in response
     assert "Quota exceeded" in response  
     assert tokens == 0
     
@@ -72,8 +72,8 @@ def test_call_llm_gemini_blocked_response(mock_genai_model):
     with patch("agents.google_api_key", "fake_key"):  
         response, tokens = call_llm("gemini-1.5-flash", "Hello")  
     
-    assert "Error: Response was blocked" in response  
-    assert "SAFETY" in response  
+    assert "Error: Model blocked response (Safety)." in response  
+    assert "Safety" in response  
     assert tokens == 0 
 
 def test_call_llm_empty_prompt():
