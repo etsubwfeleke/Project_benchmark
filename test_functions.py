@@ -57,7 +57,8 @@ def test_call_llm_gemini_api_exception(mock_genai_model):
     
     assert "API Call Error" in response  
     assert "Quota exceeded" in response  
-    assert tokens == 0 
+    assert tokens == 0
+    
 @patch("agents.genai.GenerativeModel")  
 def test_call_llm_gemini_blocked_response(mock_genai_model):  
     """Test handling of blocked Gemini responses."""  
@@ -78,7 +79,7 @@ def test_call_llm_gemini_blocked_response(mock_genai_model):
 def test_call_llm_empty_prompt():
     """Test handling of empty prompt."""
     response, tokens = call_llm("gpt-4o-mini", "")
-    assert response == "" or "cannot be empty" in response.lower()
+    assert response == "" or ("cannot be empty" in response.lower())
     assert tokens == 0
 
 def test_call_llm_unsupported_model():
@@ -105,6 +106,7 @@ def test_call_llm_missing_api_key():
     with patch("agents.openai_client", None):
         response, tokens = call_llm("gpt-4o-mini", "Hello")
         assert "Error: OPENAI_API_KEY not found" in response
+        assert tokens == 0
 def test_call_llm_missing_google_api_key():  
     """Test graceful failure when Google API key is None."""  
     with patch("agents.google_api_key", None):  

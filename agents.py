@@ -1,139 +1,151 @@
-import glob
 import json
 import re
 import time
-from typing import Dict, Optional, Tuple
+import glob
+from typing import Dict, List, Optional, Tuple, Union
 import os
 from dotenv import load_dotenv
 import google.generativeai as genai
 from openai import OpenAI
 
 # Load credentials from .env file
-load_dotenv() 
-# OPENAI_API_KEY and GOOGLE_API_KEY should be set in the .env file
+load_dotenv()
+# Configure OpenAI Client
 openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else print("Error: OPENAI_API_KEY not found in .env")
+openai_client = OpenAI(api_key=openai_api_key) if openai_api_key else None
 
+# Configure Google Gemini Client
 google_api_key = os.getenv("GOOGLE_API_KEY")
 if google_api_key:
     genai.configure(api_key=google_api_key)
-else:
-    print("Error: GOOGLE_API_KEY not found in .env Gemini models will not be available.")
-
-DEBUG_MODE = True
 
 def call_llm(model_name: str, prompt: str) -> Tuple[str, int]:
-    """ 
-    Helper function to call the specified LLM and return output and token count.
-    
-    Args: 
-        model_name: e.g., "gpt-4", "gemini-pro"
-        prompt: the prompt 
-    
-    Returns:
-        A tuple of (response_text, token_count)
     """
-    if DEBUG_MODE:
-        print(f"\n[DEBUG] Calling LLM: {model_name} with prompt length {len(prompt)}")
-        
+    Unified helper function to call either OpenAI or Google Gemini APIs.
+    Handles model-specific logic and token counting.
+
+    Args:
+        model_name (str): The model identifier (e.g., "gpt-4o-mini", "gemini-1.5-flash").
+        prompt (str): The text prompt to send to the model.
+
+    Returns:
+        Tuple[str, int]: A tuple containing (response_text, total_token_count).
+        Returns an error message and 0 tokens on failure.
+    """
     if not prompt:
-        return "Error: Prompt cannot be empty.", 0
+        return "", 0
 
     try:
-        
+        # --- GOOGLE GEMINI LOGIC ---
         if "gemini" in model_name.lower():
             if not google_api_key:
                 return "Error: GOOGLE_API_KEY not found in .env", 0
-            
+                
             model = genai.GenerativeModel(model_name)
             response = model.generate_content(prompt)
             
+            # Check for safety blocks or empty responses
             if not response.parts:
-                return f"Error: Response was blocked due to {response.prompt_feedback.block_reason}", 0
-            
+                return "Error: Model blocked response (Safety).", 0
+                
             text = response.text
+            # Access token usage metadata
             tokens = 0
             if hasattr(response, "usage_metadata"):
                 tokens = response.usage_metadata.total_token_count
             
             return text, tokens
-        
+
+        # --- OPENAI GPT LOGIC ---
         elif "gpt" in model_name.lower():
             if not openai_client:
                 return "Error: OPENAI_API_KEY not found in .env", 0
-            
+
             response = openai_client.chat.completions.create(
                 model=model_name,
                 messages=[{"role": "user", "content": prompt}],
-                temperature=0
+                temperature=0 # Use deterministic setting for consistent benchmarks
             )
+            
             text = response.choices[0].message.content
             tokens = response.usage.total_tokens
             return text, tokens
         
         else:
-            return f"Error: Unsupported model {model_name}", 0
-        
+            return f"Error: Unsupported model '{model_name}'", 0
+
     except Exception as e:
         print(f"API Call Error ({model_name}): {e}")
-        return f"API Call Error: ({model_name}): {str(e)}", 0
-
-# STATIC KNOWLEDGE BASE (For Reproducible Web Search)
+        return f"Error calling API: {str(e)}", 0
 
 def load_static_documents(directory: str = "knowledge_base") -> Dict[str, str]:
     """
     Loads all .txt files from the specified directory into a dictionary.
-    Key = filename (without extension), Value = file content.
+    This simulates a 'database' for the search tool, ensuring reproducibility.
+
+    Args:
+        directory (str): The folder name containing text documents.
+
+    Returns:
+        Dict[str, str]: Dictionary where key is filename (no extension) and value is content.
     """
     documents = {}
+    # Construct path relative to this script file
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    search_path = os.path.join(base_path, directory, "*.txt")
     
-    # Find all .txt files in the directory
-    search_path = os.path.join(directory, "*.txt")
     files = glob.glob(search_path)
     
     if not files:
-        print(f"Warning: No documents found in '{directory}'. Web search will be empty.")
+        print(f"Warning: No documents found in '{search_path}'. Web search will be empty.")
         return {}
 
+    print(f"Loading Knowledge Base from: {directory}")
     for file_path in files:
         try:
-            # Get filename without extension (e.g., 'diabetes')
             filename = os.path.basename(file_path).replace(".txt", "")
-            
             with open(file_path, "r", encoding="utf-8") as f:
                 documents[filename] = f.read().strip()
-                
         except Exception as e:
             print(f"Error loading {file_path}: {e}")
             
+    print(f"Loaded {len(documents)} documents.")
     return documents
 
-
+# Initialize the knowledge base once at startup
 STATIC_DOCUMENTS = load_static_documents()
 
+# Common stop words to filter out during naive search logic
 STOP_WORDS = set(["a", "is", "in", "what", "the", "for", "and", "of", "to", "was", "it", "with", "as"])
 
 def web_search(query: str) -> str:
     """
-    Static web search tool that searches over local documents.
-    This ensures reproducibility - no live API calls.
+    Simulates a web search engine by querying the local static document set.
+    This ensures that search results are deterministic and reproducible across runs.
+
+    Args:
+        query (str): The search query string.
+
+    Returns:
+        str: The content of relevant documents or a "No results" message.
     """
     query_lower = query.lower()
+    # Filter out stop words for better keyword matching
     query_words = [word.strip("?.,") for word in query_lower.split() if word not in STOP_WORDS]
     
     results = []
     for doc_key, doc_content in STATIC_DOCUMENTS.items():
         doc_key_as_search_term = doc_key.replace("_", " ")
         
-        # 1. Exact key match in query
+        # Priority 1: Exact key match in query (e.g. query contains "diabetes")
         if doc_key_as_search_term in query_lower:
             results.append(f"[Document: {doc_key}]\n{doc_content.strip()}")
             continue 
             
-        # 2. Key word match
+        # Priority 2: Key word match in document title
         key_word_match = False
         for word in query_words:
-            if word in doc_key: # e.g., 'heart' in 'heart_disease'
+            if word in doc_key:
                 key_word_match = True
                 break
         
@@ -141,10 +153,10 @@ def web_search(query: str) -> str:
             results.append(f"[Document: {doc_key}]\n{doc_content.strip()}")
             continue
 
-        # 3. Content match 
+        # Priority 3: Content match (word appears in document body)
         content_match = False
         for word in query_words:
-            if word and word in doc_content.lower(): # 'heart' in '...heart disease...'
+            if word and word in doc_content.lower():
                 content_match = True
                 break
         
@@ -152,69 +164,71 @@ def web_search(query: str) -> str:
             results.append(f"[Document: {doc_key}]\n{doc_content.strip()}")
             
     if results:
+        # Remove duplicates and join
         return "\n\n".join(list(dict.fromkeys(results)))
     else:
         return "No relevant documents found for your query."
 
+
 def content_extractor(text: str, model_name: str = "gpt-4o-mini") -> Tuple[str, int]:
     """
-    Extracts and summarizes key information from text using an LLM.
-    
-    Args:  
-        text: The text to extract key information from  
-        model_name: The LLM model to use (default: "gpt-4o-mini")  
-
-    Returns:  
-        Tuple[str, int]: A tuple of (extracted_summary, token_count)  
+    Tool: Extracts and summarizes key information from a text.
+    Uses the live LLM to perform the summarization.
     """
-    prompt = f"""You are a content extraction specialist. Extract the key information from the following text and provide a concise summary.
+    prompt = f"""You are an expert content extraction specialist. 
+Your task is to analyze the following text, extract the most critical information, and provide a concise, structured summary.
+Focus on key facts, dates, and definitions.
 
-Text to extract from:
+Text to process:
 {text}
 
-Provide a clear, structured summary:"""
+Output a clear summary:"""
+    
     return call_llm(model_name, prompt)
 
 
 def quiz_generator(text: str, model_name: str = "gpt-4o-mini") -> Tuple[str, int]:
     """
-    Generates a multiple-choice quiz from provided text using an LLM.
-    
-    Args:
-        text: The text to generate quiz questions from
-        model_name: The LLM model to use (default: "gpt-4o-mini")
-
-    Returns:
-        Tuple[str, int]: A tuple of (quiz_text, token_count)
+    Tool: Generates a multiple-choice quiz based on the provided text.
+    Uses the live LLM to generate questions.
     """
-    
-    prompt = f"""You are a quiz generator. Create a 3-question multiple-choice quiz based on the following text. Each question should have 4 options (A, B, C, D) with one correct answer.
+    prompt = f"""You are an educational quiz generator. 
+Your task is to create a 3-question multiple-choice quiz based STRICTLY on the text provided below.
+Each question must have 4 options (A, B, C, D) and clearly indicate the correct answer.
 
-Text:
+Text to process:
 {text}
 
-Generate the quiz in this format:
-Question 1: [question text]
-A) [option]
-B) [option]
-C) [option]
-D) [option]
-Correct Answer: [letter]"""
+Format your output exactly like this:
+Question 1: [Question text]
+A) [Option]
+B) [Option]
+C) [Option]
+D) [Option]
+Correct Answer: [Letter]
+
+(Repeat for Question 2 and 3)"""
     
     return call_llm(model_name, prompt)
 
 class NoToolAgent:
     """
-    Simplest agent - directly queries LLM without any tools.
-    Returns a dictionary log of the run.
+    A baseline agent that answers queries directly using the LLM's internal knowledge.
+    It has no access to external tools.
     """
-    
     def __init__(self, model_name: str = "gpt-4o-mini"):
         self.model_name = model_name
     
     def run(self, prompt: str) -> Dict:
-        """Execute the agent and return a log of the run."""
+        """
+        Executes the agent logic.
         
+        Args:
+            prompt (str): The user's query.
+            
+        Returns:
+            Dict: A log of the run, including steps, tokens, and final answer.
+        """
         run_log = {
             "agent_type": "no_tool",
             "start_time": time.time(),
@@ -224,7 +238,15 @@ class NoToolAgent:
             "latency_seconds": 0
         }
         
-        final_answer, tokens = call_llm(self.model_name, prompt)
+        # Enhanced prompt for No-Tool agent to ensure it tries its best without tools
+        system_prompt = f"""You are a knowledgeable AI assistant. 
+You do not have access to external tools like search or databases.
+Answer the user's question to the best of your ability using your internal training data.
+If you do not know the answer, please state that clearly.
+
+User Question: {prompt}"""
+
+        final_answer, tokens = call_llm(self.model_name, system_prompt)
         
         run_log["steps"].append({
             "type": "llm_call",
@@ -243,10 +265,9 @@ class NoToolAgent:
 
 class SingleToolAgent:
     """
-    ReAct-style agent with web_search tool.
-    Returns a dictionary log of the run.
+    An agent equipped with a single tool: 'web_search'.
+    It uses a ReAct (Reason+Act) loop to decide when to search and how to answer.
     """
-    
     def __init__(self, model_name: str = "gpt-4o-mini"):
         self.model_name = model_name
         self.tool_definition = {
@@ -256,17 +277,21 @@ class SingleToolAgent:
         }
     
     def _parse_tool_call(self, llm_response: str) -> Optional[Dict]:
+        """Parses the LLM response to extract Action and Action Input."""
         action_match = re.search(r'Action:\s*(\w+)', llm_response)
-        input_match = re.search(r'Action Input:\s*[\"\']?(.*?)[\"\']?\s*(?:\nObservation:|\n|Thought:|$)', llm_response, re.DOTALL)
+        input_match = re.search(r'Action Input:\s*["\']?(.+?)["\']?(?:\n|$)', llm_response, re.DOTALL)
         
         if action_match and input_match:
             return {"tool": action_match.group(1), "query": input_match.group(1).strip()}
         return None
+
+    def _extract_final_answer(self, llm_response: str) -> str:
+        """Helper to extract the text following 'Final Answer:'."""
+        if "Final Answer:" in llm_response:
+            return llm_response.split("Final Answer:")[-1].strip()
+        return llm_response
     
     def run(self, prompt: str) -> Dict:
-        """
-        Execute the agent and return a log of the run.
-        """
         run_log = {
             "agent_type": "single_tool",
             "start_time": time.time(),
@@ -276,22 +301,29 @@ class SingleToolAgent:
             "latency_seconds": 0
         }
 
-        react_prompt = f"""You are a helpful assistant with access to tools. Use the following format:
+        # Detailed ReAct Prompt to guide the Single-Tool Agent
+        react_prompt = f"""You are a helpful assistant with access to a knowledge base via a search tool.
+Your goal is to answer the user's question accurately.
+ALWAYS use the search tool if the question requires factual information.
+
+Use the following ReAct format:
 
 Question: the input question
-Thought: think about what to do
-Action: the action to take (must be: web_search)
-Action Input: the input to the action
-Observation: the result of the action
-... (repeat Thought/Action/Action Input/Observation as needed)
-Thought: I now know the final answer
-Final Answer: the final answer to the question
+Thought: I should think about what information I need.
+Action: web_search
+Action Input: [the search query]
+Observation: [the result of the search will appear here]
+... (You can repeat Thought/Action/Observation if needed, but usually once is enough)
+Thought: I now have the information to answer.
+Final Answer: [your final response to the user]
 
 Available Tools:
 - web_search: {self.tool_definition['description']}
 
 Question: {prompt}
 Thought:"""
+
+        # 1. Reasoning Step
         llm_response_1, tokens_1 = call_llm(self.model_name, react_prompt)
         
         run_log["steps"].append({
@@ -305,40 +337,50 @@ Thought:"""
         
         tool_call = self._parse_tool_call(llm_response_1)
         
-        if tool_call:
-            if tool_call["tool"] == "web_search":
-                search_result = web_search(tool_call["query"])
-                
-                run_log["steps"].append({
-                    "type": "tool_call",
-                    "tool_name": "web_search",
-                    "input": tool_call["query"],
-                    "output": search_result
-                })
-                
-                final_prompt = f"{react_prompt}\n{llm_response_1}\nObservation: {search_result}\nThought:"
-                llm_response_2, tokens_2 = call_llm(self.model_name, final_prompt)
-                
-                if "Final Answer:" in llm_response_2:
-                    final_answer = llm_response_2.split("Final Answer:")[-1].strip()
-                else:
-                    final_answer = llm_response_2
+        if tool_call and tool_call["tool"] == "web_search":
+            # --- INPUT VALIDATION ---
+            query = tool_call.get("query", "")
+            if not isinstance(query, str):
+                query = "" if query is None else str(query)
+            query = query.strip()
+            
+            if not query:
+                error_msg = "Error: Search query cannot be empty."
+                run_log["final_answer"] = error_msg
+                run_log["end_time"] = time.time()
+                run_log["latency_seconds"] = run_log["end_time"] - run_log["start_time"]
+                return run_log
+            # ------------------------
 
-                run_log["steps"].append({
-                    "type": "llm_call",
-                    "model": self.model_name,
-                    "input": final_prompt,
-                    "output": llm_response_2,
-                    "tokens": tokens_2
-                })
-                run_log["total_tokens"] += tokens_2
-                run_log["final_answer"] = final_answer
-            else:
-                run_log["final_answer"] = f"Error: Tool '{tool_call['tool']}' is not available. Only 'web_search' is supported." 
-                
+            # Execute Tool
+            search_result = web_search(query)
+            
+            run_log["steps"].append({
+                "type": "tool_call",
+                "tool_name": "web_search",
+                "input": query,
+                "output": search_result
+            })
+            
+            # 2. Final Answer Step
+            final_prompt = f"{react_prompt}\n{llm_response_1}\nObservation: {search_result}\nThought:"
+            llm_response_2, tokens_2 = call_llm(self.model_name, final_prompt)
+            
+            final_answer = self._extract_final_answer(llm_response_2)
+
+            run_log["steps"].append({
+                "type": "llm_call",
+                "model": self.model_name,
+                "input": final_prompt,
+                "output": final_answer,
+                "tokens": tokens_2
+            })
+            run_log["total_tokens"] += tokens_2
+            run_log["final_answer"] = final_answer
+            
         else:
-            # If agent didn't call tool, just return what it said
-            run_log["final_answer"] = llm_response_1
+            # Fallback: If agent refused to use tool or halluncinated
+            run_log["final_answer"] = self._extract_final_answer(llm_response_1)
         
         run_log["end_time"] = time.time()
         run_log["latency_seconds"] = run_log["end_time"] - run_log["start_time"]
@@ -347,10 +389,12 @@ Thought:"""
 
 class MultiToolAgent:
     """
-    ReAct-style agent with multiple tools.
-    Returns a dictionary log of the run.
-    """
+    An agent equipped with multiple specialized tools:
+    1. content_extractor (for summaries)
+    2. quiz_generator (for creating quizzes)
     
+    It must correctly ROUTE the user's request to the appropriate tool.
+    """
     def __init__(self, model_name: str = "gpt-4o-mini"):
         self.model_name = model_name
         self.tool_definitions = {
@@ -359,16 +403,20 @@ class MultiToolAgent:
         }
     
     def _parse_tool_call(self, llm_response: str) -> Optional[Dict]:
+        """Parses the LLM response for Action and Action Input."""
         action_match = re.search(r'Action:\s*(\w+)', llm_response)
         input_match = re.search(r'Action Input:\s*["\']?(.+?)["\']?(?:\n|$)', llm_response, re.DOTALL)
         if action_match and input_match:
             return {"tool": action_match.group(1), "input": input_match.group(1).strip()}
         return None
 
+    def _extract_final_answer(self, llm_response: str) -> str:
+        """Helper to clean up response if model explicitly says 'Final Answer:'"""
+        if "Final Answer:" in llm_response:
+            return llm_response.split("Final Answer:")[-1].strip()
+        return llm_response
+
     def run(self, prompt: str) -> Dict:
-        """
-        Execute the agent and return a log of the run.
-        """
         run_log = {
             "agent_type": "multi_tool",
             "start_time": time.time(),
@@ -379,21 +427,31 @@ class MultiToolAgent:
         }
         
         tools_desc = "\n".join([f"- {name}: {tool['description']}" for name, tool in self.tool_definitions.items()])
-        react_prompt = f"""You are a helpful assistant with access to multiple tools. Use the following format:
+        
+        # Detailed ReAct Prompt for Routing
+        react_prompt = f"""You are a smart assistant with access to specialized tools.
+Your main job is to ROUTE the user's request to the correct tool.
 
-Question: the input question
-Thought: think about what to do
-Action: the action to take (must be one of: content_extractor, quiz_generator)
-Action Input: the input to the action
-Observation: the result of the action
-...
-Final Answer: the final answer to the question
+GUIDELINES:
+1. If the user wants a summary, extraction, or key points, use 'content_extractor'.
+2. If the user wants a quiz, test questions, or an exam, use 'quiz_generator'.
+3. Do not answer directly if a tool is appropriate.
+
+Format:
+Question: [Input]
+Thought: [Reasoning about which tool to pick]
+Action: [Tool Name]
+Action Input: [The text to process]
+Observation: [Tool output]
+Final Answer: [Final output]
 
 Available Tools:
 {tools_desc}
 
 Question: {prompt}
 Thought:"""
+
+        # 1. Reasoning Step (Routing)
         llm_response_1, tokens_1 = call_llm(self.model_name, react_prompt)
         
         run_log["steps"].append({
@@ -404,22 +462,34 @@ Thought:"""
             "tokens": tokens_1
         })
         run_log["total_tokens"] += tokens_1
-        
+
         tool_call = self._parse_tool_call(llm_response_1)
         
         if tool_call:
             tool_name = tool_call["tool"]
             tool_input = tool_call["input"]
+            
+            # --- SINGLE DECISION BLOCK FOR EXECUTION ---
             tool_result = ""
             tool_token_cost = 0
-            
-            if tool_name == "content_extractor":
+
+            # 1. Validation Check
+            if not tool_input: 
+                tool_result = "Error: Tool input cannot be empty."
+                
+            # 2. Route to Content Extractor
+            elif tool_name == "content_extractor":
+                # Pass model_name to ensure the tool uses the same brain as the agent
                 tool_result, tool_token_cost = content_extractor(tool_input, model_name=self.model_name)
+                
+            # 3. Route to Quiz Generator
             elif tool_name == "quiz_generator":
                 tool_result, tool_token_cost = quiz_generator(tool_input, model_name=self.model_name)
+                
+            # 4. Handle Unknown Tool
             else:
                 tool_result = f"Error: Unknown tool {tool_name}"
-                tool_token_cost = 0
+            # -------------------------------------------
 
             run_log["steps"].append({
                 "type": "tool_call",
@@ -430,25 +500,26 @@ Thought:"""
             })
             run_log["total_tokens"] += tool_token_cost
             
+            # 2. Final Answer Step (Synthesis)
             final_prompt = f"{react_prompt}\n{llm_response_1}\nObservation: {tool_result}\nThought:"
             llm_response_2, tokens_2 = call_llm(self.model_name, final_prompt)
             
-            if "Final Answer:" in llm_response_2:
-                final_answer = llm_response_2.split("Final Answer:")[-1].strip()
-            else:
-                final_answer = llm_response_2
-                
+            final_answer = self._extract_final_answer(llm_response_2)
+            
             run_log["steps"].append({
                 "type": "llm_call",
                 "model": self.model_name,
                 "input": final_prompt,
-                "output": llm_response_2,
+                "output": final_answer,
                 "tokens": tokens_2
             })
             run_log["total_tokens"] += tokens_2
             run_log["final_answer"] = final_answer
+        
         else:
-            run_log["final_answer"] = llm_response_1
+            # No tool called (or failed to parse)
+            run_log["final_answer"] = self._extract_final_answer(llm_response_1)
+
         run_log["end_time"] = time.time()
         run_log["latency_seconds"] = run_log["end_time"] - run_log["start_time"]
         return run_log
@@ -457,22 +528,32 @@ def main():
     print("="*60)
     print("TESTING LIVE AGENTS (OpenAI & Gemini)")
     print("="*60)
+    
+    if not openai_client:
+        print("Warning: OpenAI API key not configured.")
+    if not google_api_key:
+        print("Warning: Google API key not configured.")
 
-    # 1. Test OpenAI
+    # 1. Test OpenAI (Single Tool)
     print("\n--- Testing SingleToolAgent with GPT-4o-mini ---")
-    agent_gpt = SingleToolAgent("gpt-4o-mini")
-    log_gpt = agent_gpt.run("What are the risk factors for heart disease?")
-    final_answer = log_gpt["final_answer"] or ""
-    print(f"Final Answer: {final_answer[:150]}...")
-    print(f"Total Tokens: {log_gpt['total_tokens']}")
+    try:
+        agent_gpt = SingleToolAgent("gpt-4o-mini")
+        log_gpt = agent_gpt.run("What are the risk factors for heart disease?")
+        print(f"Final Answer: {log_gpt['final_answer'][:150]}...")
+        print(f"Total Tokens: {log_gpt['total_tokens']}")
+    except Exception as e:
+        print(f"GPT Test Failed: {e}")
 
-    # 2. Test Gemini
-    print("\n--- Testing SingleToolAgent with Gemini-1.5-flash ---")
-    agent_gemini = SingleToolAgent("gemini-1.5-flash")
-    log_gemini = agent_gemini.run("What are the risk factors for heart disease?")
-    final_answer = log_gemini["final_answer"] or ""
-    print(f"Final Answer: {final_answer[:150]}...")
-    print(f"Total Tokens: {log_gemini['total_tokens']}")
+    # 2. Test Gemini (Single Tool)
+    print("\n--- Testing SingleToolAgent with Gemini-1.5-flash-001 ---")
+    try:
+        # Using specific version string to avoid 404 errors
+        agent_gemini = SingleToolAgent("gemini-1.5-flash-001")
+        log_gemini = agent_gemini.run("What are the risk factors for heart disease?")
+        print(f"Final Answer: {log_gemini['final_answer'][:150]}...")
+        print(f"Total Tokens: {log_gemini['total_tokens']}")
+    except Exception as e:
+        print(f"Gemini Test Failed: {e}")
 
 if __name__ == "__main__":
     main()
