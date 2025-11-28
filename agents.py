@@ -548,7 +548,7 @@ def main():
     print("\n--- Testing SingleToolAgent with Gemini-1.5-flash-001 ---")
     try:
         # Using specific version string to avoid 404 errors
-        agent_gemini = SingleToolAgent("gemini-1.5-flash-001")
+        agent_gemini = SingleToolAgent("gemini-2.5-flash-preview-09-2025")
         log_gemini = agent_gemini.run("What are the risk factors for heart disease?")
         print(f"Final Answer: {log_gemini['final_answer'][:150]}...")
         print(f"Total Tokens: {log_gemini['total_tokens']}")
