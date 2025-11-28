@@ -1,0 +1,27 @@
+# Environment and config files
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+.idea/
+.DS_Store
+
+# test files
+test_api
+
+# unwanted data files
+all_tasks.json
+flowchart.md
+split_tasks.py
+checklist.md
+debugging_agents.ipynb
+dummydatagenerator.py
+
+reporting.md
+
