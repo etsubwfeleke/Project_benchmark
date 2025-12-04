@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 
-CSV_FILE = "milestone_4_final_report.csv"
-OUTPUT_DIR = "benchmark_plots_trial_2"
+CSV_FILE = "milestone_4_final_report_recording.csv"
+OUTPUT_DIR = "benchmark_plots_trial_recording"
 
 # Set a professional style
 sns.set_theme(style="whitegrid")
@@ -37,14 +37,13 @@ def main():
     print(f"Loading data from {CSV_FILE}...")
     df = pd.read_csv(CSV_FILE)
 
+    if df['Success'].max() <= 1.0:
+        df['Success'] = df['Success'] * 100 
     # 2. Clean Data (Convert formatted strings back to numbers)
-    # The CSV likely has 'Model' and 'Agent' as columns if saved via to_csv() on a MultiIndex
     if 'Model' not in df.columns or 'Agent' not in df.columns:
         # Handle case where Model/Agent are in the index
         print("Resetting index to ensure Model and Agent are columns...")
-        # Reload with header=0 and index_col=[0,1] might be safer, but let's try standard reset
-        # If the CSV was saved simply, keys might be separate.
-        # Let's assume standard format.
+        
         pass
 
     # Clean the metric columns
