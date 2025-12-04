@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="/supporting files/openai.svg" alt="OpenAI" width="30" height="30" style="vertical-align:middle; margin-right:8px;">
+  <img src="openai.svg" alt="OpenAI" width="30" height="30" style="vertical-align:middle; margin-right:8px;">
   <strong>VS</strong>
-  <img src="/supporting files/Google_Gemini_icon_2025.svg.png" alt="Google Gemini" width="30" height="30" style="vertical-align:middle;">
+  <img src="Google_Gemini_icon_2025.svg.png" alt="Google Gemini" width="30" height="30" style="vertical-align:middle;">
 </p>
 
 # Auto Bench: A Comprehensive Benchmark Suite for Evaluating Multi-Tool Agentic LLMs 
 
 This repository contains my project for benchmarking Large Language Model (LLM) agents across research-oriented tasks. The focus is on evaluating how different agents—ranging from single-tool to multi-tool configurations—perform in a structured, reproducible, and safety-conscious environment.
 
-![Benchmark Evaluation Pipeline](/supporting%20files/benchmark_evaluation_pipeline.svg)
+![Benchmark Evaluation Pipeline](benchmark_evaluation_pipeline.svg)
 ## Project Overview
 
 * **Domain Focus:** Public Health & Pandemics (chosen for its rich, data-driven context).
