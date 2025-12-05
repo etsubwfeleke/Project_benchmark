@@ -1,0 +1,41 @@
+Task ID,Agent Type,Status,gemini-2.5-flash-preview-09-2025 Success,gpt-4o-mini Success,gemini-2.5-flash-preview-09-2025 Tool,gpt-4o-mini Tool
+1,No-Tool,Both Passed,True,True,None,None
+2,No-Tool,Both Passed,True,True,None,None
+3,No-Tool,Both Passed,True,True,None,None
+4,No-Tool,Both Passed,True,True,None,None
+5,No-Tool,Both Passed,True,True,None,None
+6,Single-Tool,Both Passed,True,True,web_search,web_search
+7,Single-Tool,Both Passed,True,True,web_search,web_search
+8,Single-Tool,Both Passed,True,True,web_search,web_search
+9,Single-Tool,Both Passed,True,True,web_search,web_search
+10,Single-Tool,"gpt-4o-mini Passed, gemini-2.5-flash-preview-09-2025 Failed",False,True,web_search,web_search
+11,Single-Tool,Both Passed,True,True,web_search,web_search
+12,Single-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,web_search,web_search
+13,Single-Tool,Both Failed,False,False,web_search,web_search
+14,Single-Tool,Both Passed,True,True,web_search,web_search
+15,Single-Tool,Both Passed,True,True,web_search,web_search
+16,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+17,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+18,Multi-Tool,Both Failed,False,False,content_extractor,content_extractor
+19,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+20,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+21,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+22,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+23,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+24,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+25,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+26,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+27,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+28,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+29,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+30,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+31,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+32,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+33,Multi-Tool,Both Passed,True,True,content_extractor,content_extractor
+34,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+35,Multi-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,content_extractor,content_extractor
+36,No-Tool,Both Passed,True,True,None,None
+37,No-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,None,None
+38,No-Tool,Both Passed,True,True,None,None
+39,No-Tool,"gemini-2.5-flash-preview-09-2025 Passed, gpt-4o-mini Failed",True,False,None,None
+40,No-Tool,Both Passed,True,True,None,None
